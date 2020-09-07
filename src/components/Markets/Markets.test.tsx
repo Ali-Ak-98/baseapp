@@ -1,7 +1,7 @@
 import { mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
 import * as React from 'react';
 import { spy } from 'sinon';
-import { Markets, MarketsProps, MarketsState } from '.';
+import { Markets, MarketsProps } from '.';
 
 const data = [
     ['ETH/BTC', '0.223100', '+50.00%'],
@@ -17,6 +17,8 @@ const defaultProps: MarketsProps = {
 
 const setup = (props?: Partial<MarketsProps>) =>
     shallow(<Markets {...{ ...defaultProps, ...props }} />);
+
+// TODO: Re-write tests to support hooks
 
 describe('Markets', () => {
    let wrapper: ShallowWrapper;
@@ -35,8 +37,8 @@ describe('Markets', () => {
    });
 
    it('should correctly filter rows', () => {
-       expect((wrapper.instance() as Markets).searchFilter(['ETH/BTC', '0.123', '+50.00%'], 'btc')).toBeTruthy();
-       expect((wrapper.instance() as Markets).searchFilter(['ETH/BTC', '0.342', '+50.00%'], 'ltc')).toBeFalsy();
+       expect((wrapper.instance() as any).searchFilter(['ETH/BTC', '0.123', '+50.00%'], 'btc')).toBeTruthy();
+       expect((wrapper.instance() as any).searchFilter(['ETH/BTC', '0.342', '+50.00%'], 'ltc')).toBeFalsy();
    });
 
    it('should set filtered data to state', () => {
@@ -48,11 +50,11 @@ describe('Markets', () => {
           ['ETH/BTC', '0.123', '+50.00%'],
       ];
 
-      (component.instance() as Markets).handleFilter(filteredData as object[]);
+      (component.instance() as any).handleFilter(filteredData as object[]);
       const input = component.find('tr').first();
       input.simulate('click');
 
-      expect((component.state() as MarketsState).filteredData).toEqual(filteredData);
+      expect((component.state() as any).filteredData).toEqual(filteredData);
    });
 
    it('should set selected market in props', () => {
@@ -76,6 +78,6 @@ describe('Markets', () => {
        ];
 
        component.setProps({ data: filteredData });
-       expect((component.state() as MarketsState).filteredData).toEqual(filteredData);
+       expect((component.state() as any).filteredData).toEqual(filteredData);
    });
 });
