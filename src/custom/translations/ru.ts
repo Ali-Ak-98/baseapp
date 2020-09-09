@@ -1,3 +1,4 @@
+import { Plugins } from '../../Plugins';
 import { LangType } from '../../translations';
 import { nationalitiesNames } from '../../translations/nationalities';
 
@@ -865,4 +866,5 @@ export const ru: LangType = {
     'password.strength.tip.digit': 'At least One digit',
 
     ...nationalitiesNames,
+    ...Plugins.getTranslations('ru'),
 };

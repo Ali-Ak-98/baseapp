@@ -1,4 +1,5 @@
 import { en as customTranslations } from '../custom/translations/en';
+import { Plugins } from '../Plugins';
 import { nationalitiesNames } from './nationalities';
 
 export const en = {
@@ -863,4 +864,5 @@ export const en = {
 
     ...nationalitiesNames,
     ...customTranslations,
+    ...Plugins.getTranslations('en'),
 };
