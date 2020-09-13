@@ -90,10 +90,12 @@ class Table extends React.Component<TableProps, TableState> {
     }
 
     public componentDidMount() {
-        const { filters } = this.props;
+        const { filters, data } = this.props;
         if (filters && filters.length > 0) {
             this.handleFilter(filters[0]);
         }
+
+        this.ensureDataIsValid(data);
     }
 
     public componentWillReceiveProps(next: TableProps) {
@@ -116,8 +118,6 @@ class Table extends React.Component<TableProps, TableState> {
 
     public render() {
         const { data, header, titleComponent, filters = [], rowKeyIndex } = this.props;
-
-        this.ensureDataIsValid(data);
 
         const cn = classNames('cr-table-header__content', {
             'cr-table-header__content-empty': !titleComponent && filters.length === 0,
