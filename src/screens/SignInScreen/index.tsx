@@ -1,14 +1,15 @@
 import cx from 'classnames';
 import * as React from 'react';
-import { InjectedIntlProps, injectIntl } from 'react-intl';
-import { connect, MapDispatchToPropsFunction, MapStateToProps } from 'react-redux';
-import { RouterProps } from 'react-router';
-import { withRouter } from 'react-router-dom';
-import { SignInComponent, TwoFactorAuth } from '../../components';
-import { EMAIL_REGEX, ERROR_EMPTY_PASSWORD, ERROR_INVALID_EMAIL, setDocumentTitle } from '../../helpers';
+import {InjectedIntlProps, injectIntl} from 'react-intl';
+import {connect, MapDispatchToPropsFunction, MapStateToProps} from 'react-redux';
+import {RouterProps} from 'react-router';
+import {withRouter} from 'react-router-dom';
+import {SignInComponent, TwoFactorAuth} from '../../components';
+import {API, RequestOptions} from '../../api';
+import {EMAIL_REGEX, ERROR_EMPTY_PASSWORD, ERROR_INVALID_EMAIL, setDocumentTitle} from '../../helpers';
 import {
     RootState,
-    selectAlertState,
+    selectAlertState, selectShow2faActions,
     selectSignInRequire2FA,
     selectSignUpRequireVerification,
     selectUserFetching,
@@ -16,13 +17,17 @@ import {
     signIn,
     signInError,
     signInRequire2FA,
+    show2FAActions,
     signUpRequireVerification,
+    alertPush,
 } from '../../modules';
+
 
 interface ReduxProps {
     isLoggedIn: boolean;
     loading?: boolean;
     require2FA?: boolean;
+    show2faActions?: boolean;
     requireEmailVerification?: boolean;
 }
 
@@ -30,7 +35,9 @@ interface DispatchProps {
     signIn: typeof signIn;
     signInError: typeof signInError;
     signInRequire2FA: typeof signInRequire2FA;
+    signInShow2FActions: typeof show2FAActions;
     signUpRequireVerification: typeof signUpRequireVerification;
+    alertSuccess: typeof alertPush;
 }
 
 interface SignInState {
@@ -62,7 +69,7 @@ class SignIn extends React.Component<Props, SignInState> {
 
     public componentDidMount() {
         setDocumentTitle('Sign In');
-        this.props.signInError({ code: undefined, message: undefined });
+        this.props.signInError({code: undefined, message: undefined});
         this.props.signUpRequireVerification({requireVerification: false});
     }
 
@@ -71,14 +78,13 @@ class SignIn extends React.Component<Props, SignInState> {
             this.props.history.push('/wallets');
         }
         if (props.requireEmailVerification) {
-            props.history.push('/email-verification', { email: this.state.email });
+            props.history.push('/email-verification', {email: this.state.email});
         }
     }
 
     public render() {
-        const { loading, require2FA } = this.props;
-
-        const className = cx('pg-sign-in-screen__container', { loading });
+        const {loading, require2FA} = this.props;
+        const className = cx('pg-sign-in-screen__container', {loading});
         return (
             <div className="pg-sign-in-screen">
                 <div className={className}>{require2FA ? this.render2FA() : this.renderSignInForm()}</div>
@@ -87,25 +93,25 @@ class SignIn extends React.Component<Props, SignInState> {
     }
 
     private renderSignInForm = () => {
-        const { loading } = this.props;
-        const { email, emailError, emailFocused, password, passwordError, passwordFocused } = this.state;
+        const {loading} = this.props;
+        const {email, emailError, emailFocused, password, passwordError, passwordFocused} = this.state;
 
         return (
             <SignInComponent
                 email={email}
                 emailError={emailError}
                 emailFocused={emailFocused}
-                emailPlaceholder={this.props.intl.formatMessage({ id: 'page.header.signIn.email' })}
+                emailPlaceholder={this.props.intl.formatMessage({id: 'page.header.signIn.email'})}
                 password={password}
                 passwordError={passwordError}
                 passwordFocused={passwordFocused}
-                passwordPlaceholder={this.props.intl.formatMessage({ id: 'page.header.signIn.password' })}
-                labelSignIn={this.props.intl.formatMessage({ id: 'page.header.signIn' })}
-                labelSignUp={this.props.intl.formatMessage({ id: 'page.header.signUp' })}
-                emailLabel={this.props.intl.formatMessage({ id: 'page.header.signIn.email' })}
-                passwordLabel={this.props.intl.formatMessage({ id: 'page.header.signIn.password' })}
-                receiveConfirmationLabel={this.props.intl.formatMessage({ id: 'page.header.signIn.receiveConfirmation' })}
-                forgotPasswordLabel={this.props.intl.formatMessage({ id: 'page.header.signIn.forgotPassword' })}
+                passwordPlaceholder={this.props.intl.formatMessage({id: 'page.header.signIn.password'})}
+                labelSignIn={this.props.intl.formatMessage({id: 'page.header.signIn'})}
+                labelSignUp={this.props.intl.formatMessage({id: 'page.header.signUp'})}
+                emailLabel={this.props.intl.formatMessage({id: 'page.header.signIn.email'})}
+                passwordLabel={this.props.intl.formatMessage({id: 'page.header.signIn.password'})}
+                receiveConfirmationLabel={this.props.intl.formatMessage({id: 'page.header.signIn.receiveConfirmation'})}
+                forgotPasswordLabel={this.props.intl.formatMessage({id: 'page.header.signIn.forgotPassword'})}
                 isLoading={loading}
                 onForgotPassword={this.forgotPassword}
                 onSignUp={this.handleSignUp}
@@ -120,16 +126,20 @@ class SignIn extends React.Component<Props, SignInState> {
     };
 
     private render2FA = () => {
-        const { loading } = this.props;
-        const { otpCode, error2fa, codeFocused } = this.state;
+        const {loading, show2faActions} = this.props;
+        const {otpCode, error2fa, codeFocused} = this.state;
         return (
             <TwoFactorAuth
                 isLoading={loading}
+                show2faActions={show2faActions}
+                show2faActionsMsg={this.props.intl.formatMessage({id: '2fa.action.msg'})}
+                show2faActionsDisableLabel={this.props.intl.formatMessage({id: '2fa.action.btn.disable'})}
                 onSubmit={this.handle2FASignIn}
-                title={this.props.intl.formatMessage({ id: 'page.password2fa' })}
-                label={this.props.intl.formatMessage({ id: 'page.body.wallets.tabs.withdraw.content.code2fa' })}
-                buttonLabel={this.props.intl.formatMessage({ id: 'page.header.signIn' })}
-                message={this.props.intl.formatMessage({ id: 'page.password2fa.message' })}
+                onDisable2FA={this.handleDisable2FA}
+                title={this.props.intl.formatMessage({id: 'page.password2fa'})}
+                label={this.props.intl.formatMessage({id: 'page.body.wallets.tabs.withdraw.content.code2fa'})}
+                buttonLabel={this.props.intl.formatMessage({id: 'page.header.signIn'})}
+                message={this.props.intl.formatMessage({id: 'page.password2fa.message'})}
                 codeFocused={codeFocused}
                 otpCode={otpCode}
                 error={error2fa}
@@ -155,15 +165,37 @@ class SignIn extends React.Component<Props, SignInState> {
     };
 
     private handleSignIn = () => {
-        const { email, password } = this.state;
+        const {email, password} = this.state;
         this.props.signIn({
             email,
             password,
         });
     };
 
+
+    private handleDisable2FA = () => {
+        const sessionsConfig: RequestOptions = {
+            apiVersion: 'barong',
+        };
+        API.post(sessionsConfig)('/identity/otp/disable', {
+            email: this.state.email,
+            password: this.state.password,
+        }).then(response => {
+            this.props.alertSuccess({
+                type: 'success',
+                message: [response.message],
+            });
+            this.handleClose();
+        }).catch(error => {
+            this.props.alertSuccess({
+                type: 'error',
+                message: [error.message],
+            });
+        });
+    };
+
     private handle2FASignIn = () => {
-        const { email, password, otpCode } = this.state;
+        const {email, password, otpCode} = this.state;
         if (!otpCode) {
             this.setState({
                 error2fa: 'Please enter 2fa code',
@@ -209,12 +241,12 @@ class SignIn extends React.Component<Props, SignInState> {
     };
 
     private validateForm = () => {
-        const { email, password } = this.state;
+        const {email, password} = this.state;
         const isEmailValid = email.match(EMAIL_REGEX);
 
         if (!isEmailValid) {
             this.setState({
-                emailError: this.props.intl.formatMessage({ id: ERROR_INVALID_EMAIL }),
+                emailError: this.props.intl.formatMessage({id: ERROR_INVALID_EMAIL}),
                 passwordError: '',
             });
             return;
@@ -222,7 +254,7 @@ class SignIn extends React.Component<Props, SignInState> {
         if (!password) {
             this.setState({
                 emailError: '',
-                passwordError: this.props.intl.formatMessage({ id: ERROR_EMPTY_PASSWORD }),
+                passwordError: this.props.intl.formatMessage({id: ERROR_EMPTY_PASSWORD}),
             });
             return;
         }
@@ -241,7 +273,8 @@ class SignIn extends React.Component<Props, SignInState> {
     };
 
     private handleClose = () => {
-        this.props.signInRequire2FA({ require2fa: false });
+        this.props.signInRequire2FA({require2fa: false});
+        this.props.signInShow2FActions({show2faActions: false});
     };
 }
 
@@ -250,6 +283,7 @@ const mapStateToProps: MapStateToProps<ReduxProps, {}, RootState> = state => ({
     isLoggedIn: selectUserLoggedIn(state),
     loading: selectUserFetching(state),
     require2FA: selectSignInRequire2FA(state),
+    show2faActions: selectShow2faActions(state),
     requireEmailVerification: selectSignUpRequireVerification(state),
 });
 
@@ -257,7 +291,9 @@ const mapDispatchProps: MapDispatchToPropsFunction<DispatchProps, {}> = dispatch
     signIn: data => dispatch(signIn(data)),
     signInError: error => dispatch(signInError(error)),
     signInRequire2FA: payload => dispatch(signInRequire2FA(payload)),
+    signInShow2FActions: payload => dispatch(show2FAActions(payload)),
     signUpRequireVerification: data => dispatch(signUpRequireVerification(data)),
+    alertSuccess: payload => dispatch(alertPush(payload)),
 });
 
 // tslint:disable no-any

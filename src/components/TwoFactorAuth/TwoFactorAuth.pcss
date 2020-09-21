@@ -1,0 +1,74 @@
+.withActions {
+    min-height: 550px !important;
+
+    .actionsWrapper {
+        width: 95%;
+        background-color: #fff3cd;
+        border: solid 1px #ffeeba;
+        border-radius: var(--border-radius);
+        margin: 0 auto;
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #856404 !important;
+
+        .message {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            img {
+                width: 35%;
+                margin: 5px;
+            }
+
+            p {
+                width: 75%;
+                margin-right: 5px;
+                font-size: 14px;
+                text-align: left;
+                line-height: 25px;
+            }
+        }
+
+        hr {
+            width: 95%;
+            height: 1px;
+            margin: 0 auto;
+            border: none;
+            outline: none;
+            background-color: #e8b61d;
+        }
+
+        .buttons {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+
+            button {
+                padding: 10px 20px;
+                cursor: pointer;
+                border-radius: var(--border-radius);
+                outline: none;
+                border: none;
+                color: white;
+                font-size: 15px;
+
+                &:first-child {
+                    margin-right: 15px;
+                    background-color: #28a745;
+                    border-color: #28a745;
+                }
+
+                &:last-child {
+                    background-color: #dc3545;
+                    border-color: #dc3545;
+                }
+            }
+        }
+    }
+
+}

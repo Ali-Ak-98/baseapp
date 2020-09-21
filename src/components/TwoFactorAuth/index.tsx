@@ -1,13 +1,15 @@
-import { Button } from '@openware/components';
+import {Button} from '@openware/components';
 import cr from 'classnames';
-import { CustomInput } from '../';
+import {CustomInput} from '../';
 
 import * as React from 'react';
 
 export interface TwoFactorAuthProps {
     errorMessage?: string;
     isLoading?: boolean;
+    show2faActions?: boolean;
     onSubmit: () => void;
+    onDisable2FA: () => void;
     title: string;
     label: string;
     buttonLabel: string;
@@ -18,6 +20,8 @@ export interface TwoFactorAuthProps {
     handleOtpCodeChange: (otp: string) => void;
     handleChangeFocusField: () => void;
     handleClose2fa: () => void;
+    show2faActionsMsg: string;
+    show2faActionsDisableLabel: string;
 }
 
 class TwoFactorAuthComponent extends React.Component<TwoFactorAuthProps> {
@@ -32,6 +36,9 @@ class TwoFactorAuthComponent extends React.Component<TwoFactorAuthProps> {
             error,
             otpCode,
             codeFocused,
+            show2faActions,
+            show2faActionsMsg,
+            show2faActionsDisableLabel,
         } = this.props;
 
         const errors = errorMessage || error;
@@ -44,7 +51,7 @@ class TwoFactorAuthComponent extends React.Component<TwoFactorAuthProps> {
         return (
             <div className="pg-2fa___form">
                 <form>
-                    <div className="cr-email-form">
+                    <div className={show2faActions ? 'cr-email-form withActions' : 'cr-email-form'}>
                         <div className="cr-email-form__options-group">
                             <div className="cr-email-form__option">
                                 <div className="cr-email-form__option-inner">
@@ -56,8 +63,21 @@ class TwoFactorAuthComponent extends React.Component<TwoFactorAuthProps> {
                             </div>
                         </div>
                         <div className="cr-email-form__form-content">
+                            {show2faActions &&
+                            <div className="actionsWrapper">
+                                <div className="message">
+                                    <img alt="warning" src={require('../../assets/images/warning.svg')}/>
+                                    <p>{show2faActionsMsg}</p>
+                                </div>
+                                <hr/>
+                                <div className="buttons">
+                                    <button onClick={this.handleDisable2FA}
+                                            type="button">{show2faActionsDisableLabel}</button>
+                                </div>
+                            </div>
+                            }
                             <div className="cr-email-form__header">
-                              {message}
+                                {message}
                             </div>
                             <div className={emailGroupClass}>
                                 <CustomInput
@@ -92,10 +112,15 @@ class TwoFactorAuthComponent extends React.Component<TwoFactorAuthProps> {
 
     private handleCancel = () => {
         this.props.handleClose2fa();
-    }
+    };
 
     private handleSubmit = () => {
         this.props.onSubmit();
+    };
+
+
+    private handleDisable2FA = () => {
+        this.props.onDisable2FA();
     };
 
     private handleEnterPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -103,7 +128,7 @@ class TwoFactorAuthComponent extends React.Component<TwoFactorAuthProps> {
             event.preventDefault();
             this.handleSubmit();
         }
-    }
+    };
 }
 
 export const TwoFactorAuth = TwoFactorAuthComponent;

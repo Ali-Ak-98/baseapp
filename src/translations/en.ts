@@ -1,5 +1,5 @@
-import { en as customTranslations } from '../custom/translations/en';
-import { nationalitiesNames } from './nationalities';
+import {en as customTranslations} from '../custom/translations/en';
+import {nationalitiesNames} from './nationalities';
 
 export const en = {
     'page.header.navbar.signIn': 'Sign In',
@@ -390,9 +390,9 @@ export const en = {
     'page.header.signUp.terms': 'I have read and agree to the Terms of Service',
     'page.header.signUp.modal.header': 'VERIFY YOUR EMAIL ADDRESS',
     'page.header.signUp.modal.body': 'To complete registration, check for an ' +
-                                      'email in your inbox with further ' +
-                                      'instruction. If you cannot find the email, ' +
-                                      'please check your spam folder',
+        'email in your inbox with further ' +
+        'instruction. If you cannot find the email, ' +
+        'please check your spam folder',
 
     'page.resendConfirmation': 'Resend Confirmation',
     'page.forgotPassword': 'Forgot Password',
@@ -443,7 +443,7 @@ export const en = {
     'resource.phone.verification_invalid': 'Phone is not found or verification code is invalid',
     'resource.documents.limit_reached': 'Maximum number of documents already reached',
     'resource.documents.limit_will_be_reached': 'Documents amount will reach limit by this upload',
-    'resource.otp.already_enabled':'2FA has been already enabled for this account',
+    'resource.otp.already_enabled': '2FA has been already enabled for this account',
     'resource.otp.invalid': 'OTP code is invalid',
     'resource.password.doesnt_match': 'New passwords don\'t match',
     'resource.password.prev_pass_not_correct': 'Previous password is not correct',
@@ -639,6 +639,9 @@ export const en = {
     'public.k_line.invalid_limit': 'Invalid limit',
 
     'server.internal_error': 'Internal Server Error',
+
+    '2fa.action.msg': 'we upgrade our 2FA security system.you must reActivate it to upgrade to new system',
+    '2fa.action.btn.disable': 'Disable',
 
     ...nationalitiesNames,
     ...customTranslations,

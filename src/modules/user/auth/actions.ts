@@ -1,12 +1,13 @@
-import { CommonError } from '../../types';
+import {CommonError} from '../../types';
 import {
     AUTH_LOGOUT_FAILURE,
     AUTH_LOGOUT_FETCH,
     AUTH_SIGN_IN_ERROR,
     AUTH_SIGN_IN_FETCH,
     AUTH_SIGN_IN_REQUIRE_2FA,
-    AUTH_SIGN_UP_FETCH,
+    AUTH_SIGN_IN_SHOW_2FA_ACTIONS,
     AUTH_SIGN_UP_ERROR,
+    AUTH_SIGN_UP_FETCH,
     AUTH_SIGN_UP_REQUIRE_VERIFICATION,
     AUTH_TEST_STATE,
     AUTH_VERIFICATION_FETCH,
@@ -38,6 +39,13 @@ export interface SignInRequire2FA {
     type: typeof AUTH_SIGN_IN_REQUIRE_2FA;
     payload: {
         require2fa: boolean;
+    };
+}
+
+export interface Show2FAActions {
+    type: typeof AUTH_SIGN_IN_SHOW_2FA_ACTIONS;
+    payload: {
+        show2faActions: boolean;
     };
 }
 
@@ -91,6 +99,7 @@ export type AuthAction =
     | SignInFetch
     | SignInError
     | SignInRequire2FA
+    | Show2FAActions
     | SignUpFetch
     | SignUpError
     | SignUpRequireVerification
@@ -112,6 +121,11 @@ export const signInError = (payload: SignInError['payload']): SignInError => ({
 
 export const signInRequire2FA = (payload: SignInRequire2FA['payload']): SignInRequire2FA => ({
     type: AUTH_SIGN_IN_REQUIRE_2FA,
+    payload,
+});
+
+export const show2FAActions = (payload: Show2FAActions['payload']): Show2FAActions => ({
+    type: AUTH_SIGN_IN_SHOW_2FA_ACTIONS,
     payload,
 });
 

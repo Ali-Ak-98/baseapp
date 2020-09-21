@@ -1,5 +1,5 @@
-import { LangType } from '../../translations';
-import { nationalitiesNames } from '../../translations/nationalities';
+import {LangType} from '../../translations';
+import {nationalitiesNames} from '../../translations/nationalities';
 
 export const ru: LangType = {
     'page.header.navbar.signIn': 'Войти',
@@ -391,9 +391,9 @@ export const ru: LangType = {
     'page.header.signUp.terms': 'Я согласен со всеми заявлениями с точки зрения обслуживания',
     'page.header.signUp.modal.header': 'ПРОВЕРЬТЕ СВОЙ АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ',
     'page.header.signUp.modal.body': 'Чтобы завершить регистрацию, найдите в своем' +
-                                     ' почтовом ящике электронное письмо с дальнейшими инструкциями. ' +
-                                     'Если вы не можете найти адрес электронной почты, проверьте свою' +
-                                     ' электронную почту со спамом.',
+        ' почтовом ящике электронное письмо с дальнейшими инструкциями. ' +
+        'Если вы не можете найти адрес электронной почты, проверьте свою' +
+        ' электронную почту со спамом.',
 
     'page.resendConfirmation': 'Отправить подтверждение снова',
     'page.forgotPassword': 'Забыли пароль',
@@ -406,7 +406,7 @@ export const ru: LangType = {
 
     'page.modal.withdraw.success': 'Успешно!',
     'page.modal.withdraw.success.message.content': 'Ваш вывод был успешно подтвержден. Пожалуйста, подождите, чтобы получить ' +
-                                                   'несколько обязательных подтверждений для завершения этой транзакции.',
+        'несколько обязательных подтверждений для завершения этой транзакции.',
     'page.modal.withdraw.success.button': 'OK',
 
     // success messages
@@ -640,6 +640,10 @@ export const ru: LangType = {
     'public.k_line.invalid_limit': 'Неверный лимит',
 
     'server.internal_error': 'Внутренняя ошибка сервера',
+
+    '2fa.action.msg': '',
+    '2fa.action.btn.disable': '',
+
 
     ...nationalitiesNames,
 };
