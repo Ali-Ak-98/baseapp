@@ -2,6 +2,7 @@
   "name": "@openware/base-app",
   "version": "2.6.0",
   "private": true,
+  "homepage": "/app",
   "dependencies": {
     "@formatjs/intl-pluralrules": "^3.2.5",
     "@formatjs/intl-relativetimeformat": "^7.0.0",
