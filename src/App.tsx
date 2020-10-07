@@ -12,7 +12,7 @@ import { selectCurrentLanguage, selectMobileDeviceState } from './modules';
 import { languageMap } from './translations';
 
 const gaKey = gaTrackerKey();
-const browserHistory = createBrowserHistory();
+const browserHistory = createBrowserHistory({basename:'app'});
 
 if (gaKey) {
     ReactGA.initialize(gaKey);
