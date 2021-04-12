@@ -75,6 +75,7 @@ export const App = () => {
     useSetMobileDevice();
     const lang = useSelector(selectCurrentLanguage);
     const isMobileDevice = useSelector(selectMobileDeviceState);
+    localStorage.setItem('lang_code', 'fa');
 
     return (
         <IntlProvider locale={lang} messages={getTranslations(lang, isMobileDevice)} key={lang}>

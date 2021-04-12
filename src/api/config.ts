@@ -63,6 +63,6 @@ export const msAlertDisplayTime = (): string => Cryptobase.config.msAlertDisplay
 export const defaultStorageLimit = (): number => Number(Cryptobase.config.storage.defaultStorageLimit);
 export const orderBookSideLimit = (): number => Number(Cryptobase.config.storage.orderBookSideLimit);
 export const passwordEntropyStep = (): number => Number(Cryptobase.config.passwordEntropyStep);
-export const languages: string[] = (Cryptobase.config.languages && Cryptobase.config.languages.length > 0) ? Cryptobase.config.languages : ['en'];
+export const languages: string[] = (Cryptobase.config.languages && Cryptobase.config.languages.length > 0) ? Cryptobase.config.languages : ['fa'];
 export const kycSteps = (): string[] => Cryptobase.config.kycSteps;
 export const isUsernameEnabled = (): boolean => Cryptobase.config.usernameEnabled;

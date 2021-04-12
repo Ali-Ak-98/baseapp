@@ -15,7 +15,7 @@ window.env = {
     finex: true,
     isResizable: false,
     isDraggable: false,
-    languages: ['en', 'ru'],
+    languages: ['fa', 'en'],
     sessionCheckInterval: '15000',
     balancesFetchInterval: '3000',
     passwordEntropyStep: 14,

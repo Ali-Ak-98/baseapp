@@ -1,17 +1,16 @@
-import moment from 'moment-timezone';
+import * as jmoment from 'jalali-moment';
 import { getTimezone } from './timezone';
 
 export const localeDate = (date, format, timezone = getTimezone()) => {
     const getFormat = type => {
         return {
-            fullDate: 'DD-MM-YYYY HH:mm:ss',
-            shortDate: 'DD-MM-YYYY HH:mm',
+            fullDate: ' HH:mm:ss YYYY/MM/DD',
+            shortDate: ' HH:mm YYYY/MM/DD',
             time: 'HH:mm:ss',
-          }[type];
+        }[type];
     };
     const formatDisplay = getFormat(format);
-    const isUnix = typeof date === 'number';
-    const momentObj = isUnix ? moment.unix(date) : moment(date);
 
-    return momentObj.tz(timezone).format(formatDisplay);
+
+    return jmoment(date).locale('fa').format(formatDisplay);
 };
