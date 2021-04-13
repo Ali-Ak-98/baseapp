@@ -60,15 +60,15 @@ class SidebarContainer extends React.Component<Props, State> {
     };
 
     public render() {
-        const { isLoggedIn, isActive, lang } = this.props;
-        const { isOpenLanguage } = this.state;
+        const { isLoggedIn, isActive } = this.props;
+        // const { isOpenLanguage } = this.state;
 
         const address = this.props.history.location ? this.props.history.location.pathname : '';
-        const languageName = lang.toUpperCase();
-
-        const languageClassName = classnames('dropdown-menu-language-field', {
-            'dropdown-menu-language-field-active': isOpenLanguage,
-        });
+        // const languageName = lang.toUpperCase();
+        //
+        // const languageClassName = classnames('dropdown-menu-language-field', {
+        //     'dropdown-menu-language-field-active': isOpenLanguage,
+        // });
 
         const sidebarClassName = classnames('pg-sidebar-wrapper', {
             'pg-sidebar-wrapper--active': isActive,
@@ -81,22 +81,22 @@ class SidebarContainer extends React.Component<Props, State> {
                 <div className="pg-sidebar-wrapper-nav">
                     {pgRoutes(isLoggedIn).map(this.renderNavItems(address))}
                 </div>
-                <div className="pg-sidebar-wrapper-lng">
-                    <div className="btn-group pg-navbar__header-settings__account-dropdown dropdown-menu-language-container">
-                        <Dropdown>
-                            <Dropdown.Toggle variant="primary" id={languageClassName}>
-                                <img
-                                    src={this.tryRequire(lang) && require(`../../assets/images/sidebar/${lang}.svg`)}
-                                    alt={`${lang}-flag-icon`}
-                                />
-                                <span className="dropdown-menu-language-selected">{languageName}</span>
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                {this.getLanguageDropdownItems()}
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    </div>
-                </div>
+                {/*<div className="pg-sidebar-wrapper-lng">*/}
+                {/*    <div className="btn-group pg-navbar__header-settings__account-dropdown dropdown-menu-language-container">*/}
+                {/*        <Dropdown>*/}
+                {/*            <Dropdown.Toggle variant="primary" id={languageClassName}>*/}
+                {/*                <img*/}
+                {/*                    src={this.tryRequire(lang) && require(`../../assets/images/sidebar/${lang}.svg`)}*/}
+                {/*                    alt={`${lang}-flag-icon`}*/}
+                {/*                />*/}
+                {/*                <span className="dropdown-menu-language-selected">{languageName}</span>*/}
+                {/*            </Dropdown.Toggle>*/}
+                {/*            <Dropdown.Menu>*/}
+                {/*                {this.getLanguageDropdownItems()}*/}
+                {/*            </Dropdown.Menu>*/}
+                {/*        </Dropdown>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 {this.renderLogout()}
             </div>
         );

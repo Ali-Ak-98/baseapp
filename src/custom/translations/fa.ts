@@ -8,6 +8,8 @@ export const fa = {
     'page.header.navbar.dashboard': 'داشبورد',
     'page.header.navbar.signIn': 'ورود',
     'page.header.navbar.trade': 'معامله',
+    'page.header.navbar.openOrders': 'معاملات باز',
+    'page.header.navbar.api': 'API',
     'page.header.navbar.fastOrder': 'سفارش سریع',
     'page.header.navbar.wallets': 'کیف پول ها',
     'page.header.navbar.mainMarkets': 'بازار های تومان',
@@ -759,6 +761,9 @@ export const fa = {
     'page.body.customization.comingSoon': 'به زودی',
     'page.body.customization.actionButtons.reset': 'بازیابی',
     'page.body.customization.actionButtons.save': 'ذخیره',
+
+    'page.body.charts.tabs.depth': 'عمق بازار',
+    'page.body.charts.tabs.chart': 'نمودار',
 
     'page.body.customization.themes.selector.label': 'تنظیمات تم',
 

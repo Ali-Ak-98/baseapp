@@ -78,15 +78,15 @@ class Head extends React.Component<Props> {
                             <LogoIcon className="pg-logo__img" />
                         </div>
                     </div>
-                    {this.renderMarketToggler()}
                     <div className="pg-header__location">
                         {mobileWallet ? <span>{mobileWallet}</span> : <span>{location.pathname.split('/')[1]}</span>}
                     </div>
                     {this.renderMobileWalletNav()}
                     <div className="pg-header__navbar">
-                        {this.renderMarketToolbar()}
                         <NavBar onLinkChange={this.closeMenu}/>
+                        {this.renderMarketToolbar()}
                     </div>
+                    {this.renderMarketToggler()}
                 </div>
             </header>
         );
@@ -124,14 +124,14 @@ class Head extends React.Component<Props> {
 
         return (
             <div className="pg-header__market-selector-toggle" onClick={this.props.toggleMarketSelector}>
-                <p className="pg-header__market-selector-toggle-value">
-                    {currentMarket && currentMarket.name}
-                </p>
                 {marketSelectorOpened ? (
                     <img src={require(`./arrows/arrowBottom${isLight ? 'Light' : ''}.svg`)} alt="arrow"/>
                 ) : (
                     <img src={require(`./arrows/arrowRight${isLight ? 'Light' : ''}.svg`)} alt="arrow"/>
                 )}
+                <p className="pg-header__market-selector-toggle-value">
+                    {currentMarket && currentMarket.name}
+                </p>
             </div>
         );
     };
