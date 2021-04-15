@@ -16,6 +16,7 @@ Access-Control-Allow-Credentials: true
     "isResizable": false,
     "isDraggable": false,
     "languages": [
+        "fa",
         "en",
         "ru"
     ],

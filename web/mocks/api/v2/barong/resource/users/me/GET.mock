@@ -12,7 +12,7 @@ access-control-allow-headers: Origin, X-Requested-With, Content-Type, Accept, Au
     "state": "",
     "uid": "ID787E383938",
     "csrf_token": "31415926535897932384626433832795028841971",
-    "data":"{\"language\":\"en\"}",
+    "data":"{\"language\":\"fa\"}",
     "profiles": [
         {
             "address": null,

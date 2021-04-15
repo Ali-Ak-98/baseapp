@@ -8,10 +8,10 @@ access-control-allow-headers: Origin, X-Requested-With, Content-Type, Accept, Au
     "uid":"ID489F525B1D",
     "role":"superadmin",
     "level": 1,
-    "otp":true,
+    "otp":false,
     "state":"active",
     "referral_uid":null,
-    "data":"{\"language\":\"en\"}",
+    "data":"{\"language\":\"fa\"}",
     "created_at":"2019-10-30T11:15:07Z",
     "updated_at":"2020-01-13T11:59:31Z",
     "labels":[

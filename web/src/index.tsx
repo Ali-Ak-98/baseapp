@@ -1,19 +1,19 @@
+import '@openware/react-components/build/index.css';
 import * as Sentry from '@sentry/browser';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {  WrappedComponentProps } from 'react-intl';
+import {WrappedComponentProps} from 'react-intl';
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import { Provider } from 'react-redux';
-import { sentryEnabled } from './api/config';
-import { App } from './App';
+import {Provider} from 'react-redux';
+import {sentryEnabled} from './api/config';
+import {App} from './App';
+import './assets/fonts/fontiran.css';
 import './index.pcss';
-import { rootSaga } from './modules';
-import { rangerSagas } from './modules/public/ranger';
-import { rangerMiddleware, sagaMiddleware, store } from './store';
-
-import '@openware/react-components/build/index.css';
+import {rootSaga} from './modules';
+import {rangerSagas} from './modules/public/ranger';
+import {rangerMiddleware, sagaMiddleware, store} from './store';
 
 
 if (!Intl.PluralRules) {

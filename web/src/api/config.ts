@@ -29,7 +29,7 @@ export const defaultConfig: Config = {
         defaultStorageLimit: '50',
         orderBookSideLimit: '25'
     },
-    languages: ['en', 'ru'],
+    languages: ['fa','en', 'ru'],
     kycSteps: [
         'email',
         'phone',
@@ -74,7 +74,7 @@ export const msAlertDisplayTime = () => Cryptobase.config.msAlertDisplayTime;
 export const defaultStorageLimit = () => Number(Cryptobase.config.storage.defaultStorageLimit);
 export const orderBookSideLimit = () => Number(Cryptobase.config.storage.orderBookSideLimit);
 export const passwordEntropyStep = () => Number(Cryptobase.config.passwordEntropyStep);
-export const languages = (Cryptobase.config.languages && Cryptobase.config.languages.length > 0) ? Cryptobase.config.languages : ['en'];
+export const languages = (Cryptobase.config.languages && Cryptobase.config.languages.length > 0) ? Cryptobase.config.languages : ['fa'];
 export const kycSteps = () => Cryptobase.config.kycSteps;
 export const isUsernameEnabled = () => convertToBoolean(Cryptobase.config.usernameEnabled);
 export const captchaType = () => Cryptobase.config.captcha_type;
