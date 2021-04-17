@@ -1,0 +1,42 @@
+﻿
+@font-face {
+	font-family: dinNext;
+	font-style: normal;
+	font-weight: bold;
+	src: url('dinNext/DINNextLTArabic-Bold.ttf');
+}
+
+@font-face {
+	font-family: dinNext;
+	font-style: normal;
+	font-weight: 100;
+	src: url('dinNext/DINNextLTArabic-Regular.ttf');
+}
+
+@font-face {
+	font-family: dinNext;
+	font-style: normal;
+	font-weight: 300;
+	src: url('dinNext/DINNextLTArabic-Light.ttf');
+}
+
+@font-face {
+	font-family: dinNext;
+	font-style: normal;
+	font-weight: normal;
+	src: url('dinNext/DINNextLTArabic-Medium.ttf');
+}
+
+@font-face {
+	font-family: dinNext;
+	font-style: normal;
+	font-weight: 500;
+	src: url('dinNext/DINNextLTArabic-Heavy.ttf');
+}
+
+@font-face {
+	font-family: dinNext;
+	font-style: normal;
+	font-weight: 800;
+	src: url('dinNext/DINNextLTArabic-Black.ttf');
+}

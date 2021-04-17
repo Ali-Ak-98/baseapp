@@ -9,7 +9,7 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 import {Provider} from 'react-redux';
 import {sentryEnabled} from './api/config';
 import {App} from './App';
-import './assets/fonts/fontiran.css';
+import './assets/fonts/dinNext.css';
 import './index.pcss';
 import {rootSaga} from './modules';
 import {rangerSagas} from './modules/public/ranger';

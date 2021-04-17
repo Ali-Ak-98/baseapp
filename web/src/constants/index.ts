@@ -1,4 +1,4 @@
-import { DropdownElem } from '../components/Order';
+import {DropdownElem} from '../components/Order';
 
 export const PG_TITLE_PREFIX = 'Cryptobase';
 
@@ -7,6 +7,7 @@ export const pgRoutes = (isLoggedIn: boolean, isLight?: boolean): string[][] => 
         ['page.header.navbar.trade', '/trading/', `trade${isLight ? 'Light' : ''}`],
         ['page.header.navbar.wallets', '/wallets', `wallets${isLight ? 'Light' : ''}`],
         ['page.header.navbar.openOrders', '/orders', `orders${isLight ? 'Light' : ''}`],
+        ['page.header.navbar.accounting.depositRiyal', '/deposit/riyal', `riyal${isLight ? 'Light' : ''}`],
         ['page.header.navbar.history', '/history', `history${isLight ? 'Light' : ''}`],
         ['page.header.navbar.api', '/api', `api${isLight ? 'Light' : ''}`],
         ['page.header.navbar.internal.transfer', '/internal-transfer', `internal_transfer${isLight ? 'Light' : ''}`],

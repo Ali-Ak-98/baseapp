@@ -1,44 +1,46 @@
-import { combineReducers } from 'redux';
-import { all, call } from 'redux-saga/effects';
-import { adminReducer, publicReducer, userReducer } from './app';
-import { ConfigUpdateState, rootConfigUpdateSaga } from './admin/config';
-import { AlertState, rootHandleAlertSaga } from './public/alert';
-import { BlocklistAccessState, rootBlocklistAccessSaga } from './public/blocklistAccess';
-import { CurrenciesState, rootCurrenciesSaga } from './public/currencies';
-import { ErrorHandlerState, rootErrorHandlerSaga } from './public/errorHandler';
-import { ColorThemeState } from './public/globalSettings';
-import { GridLayoutState } from './public/gridLayout';
-import { LanguageState } from './public/i18n';
-import { KlineState, rootKlineFetchSaga } from './public/kline';
-import { MarketsState, rootMarketsSaga } from './public/markets';
-import { MemberLevelsState, rootMemberLevelsSaga } from './public/memberLevels';
-import { DepthIncrementState, DepthState, OrderBookState, rootOrderBookSaga } from './public/orderBook';
-import { RangerState } from './public/ranger/reducer';
-import { RecentTradesState, rootRecentTradesSaga } from './public/recentTrades';
-import { ApiKeysState } from './user/apiKeys';
-import { rootApiKeysSaga } from './user/apiKeys/sagas';
-import { AuthState, rootAuthSaga } from './user/auth';
-import { BeneficiariesState, rootBeneficiariesSaga } from './user/beneficiaries';
-import { GeetestCaptchaState, rootGeetestCaptchaSaga } from './user/captcha';
-import { DocumentationState, rootDocumentationSaga } from './user/documentation';
-import { EmailVerificationState, rootEmailVerificationSaga } from './user/emailVerification';
-import { HistoryState, rootHistorySaga } from './user/history';
-import { InternalTransfersState, rootInternalTransfersSaga } from './user/internalTransfers';
-import { AddressesState, rootSendAddressesSaga } from './user/kyc/addresses';
-import { DocumentsState, rootSendDocumentsSaga } from './user/kyc/documents';
-import { IdentityState, rootSendIdentitySaga } from './user/kyc/identity';
-import { LabelState, rootLabelSaga } from './user/kyc/label';
-import { PhoneState, rootSendCodeSaga } from './user/kyc/phone';
-import { OpenOrdersState, rootOpenOrdersSaga } from './user/openOrders';
-import { OrdersState, rootOrdersSaga } from './user/orders';
-import { OrdersHistoryState, rootOrdersHistorySaga } from './user/ordersHistory';
-import { PasswordState, rootPasswordSaga } from './user/password';
-import { ProfileState, rootProfileSaga } from './user/profile';
-import { rootUserActivitySaga, UserActivityState } from './user/userActivity';
-import { rootWalletsSaga, WalletsState } from './user/wallets';
-import { rootWithdrawLimitSaga, WithdrawLimitState } from './user/withdrawLimit';
-import { MarketsAdminState, rootMarketsAdminSaga } from './admin/markets';
-import { PlatformCreateState, rootPlatformCreateSaga } from './admin/platform';
+import {combineReducers} from 'redux';
+import {all, call} from 'redux-saga/effects';
+import {ConfigUpdateState, rootConfigUpdateSaga} from './admin/config';
+import {MarketsAdminState, rootMarketsAdminSaga} from './admin/markets';
+import {PlatformCreateState, rootPlatformCreateSaga} from './admin/platform';
+import {adminReducer, publicReducer, userReducer} from './app';
+import {AlertState, rootHandleAlertSaga} from './public/alert';
+import {BlocklistAccessState, rootBlocklistAccessSaga} from './public/blocklistAccess';
+import {CurrenciesState, rootCurrenciesSaga} from './public/currencies';
+import {ErrorHandlerState, rootErrorHandlerSaga} from './public/errorHandler';
+import {ColorThemeState} from './public/globalSettings';
+import {GridLayoutState} from './public/gridLayout';
+import {LanguageState} from './public/i18n';
+import {KlineState, rootKlineFetchSaga} from './public/kline';
+import {MarketsState, rootMarketsSaga} from './public/markets';
+import {MemberLevelsState, rootMemberLevelsSaga} from './public/memberLevels';
+import {DepthIncrementState, DepthState, OrderBookState, rootOrderBookSaga} from './public/orderBook';
+import {RangerState} from './public/ranger/reducer';
+import {RecentTradesState, rootRecentTradesSaga} from './public/recentTrades';
+import {ApiKeysState} from './user/apiKeys';
+import {rootApiKeysSaga} from './user/apiKeys/sagas';
+import {AuthState, rootAuthSaga} from './user/auth';
+import {BeneficiariesState, rootBeneficiariesSaga} from './user/beneficiaries';
+import {GeetestCaptchaState, rootGeetestCaptchaSaga} from './user/captcha';
+import {DocumentationState, rootDocumentationSaga} from './user/documentation';
+import {EmailVerificationState, rootEmailVerificationSaga} from './user/emailVerification';
+import {HistoryState, rootHistorySaga} from './user/history';
+import {InternalTransfersState, rootInternalTransfersSaga} from './user/internalTransfers';
+import {AddressesState, rootSendAddressesSaga} from './user/kyc/addresses';
+import {DocumentsState, rootSendDocumentsSaga} from './user/kyc/documents';
+import {IdentityState, rootSendIdentitySaga} from './user/kyc/identity';
+import {LabelState, rootLabelSaga} from './user/kyc/label';
+import {PhoneState, rootSendCodeSaga} from './user/kyc/phone';
+import {OpenOrdersState, rootOpenOrdersSaga} from './user/openOrders';
+import {OrdersState, rootOrdersSaga} from './user/orders';
+import {OrdersHistoryState, rootOrdersHistorySaga} from './user/ordersHistory';
+import {PasswordState, rootPasswordSaga} from './user/password';
+import {ProfileState, rootProfileSaga} from './user/profile';
+import {CardState} from './user/riyal';
+import {rootRiyalsSaga} from './user/riyal/sagas';
+import {rootUserActivitySaga, UserActivityState} from './user/userActivity';
+import {rootWalletsSaga, WalletsState} from './user/wallets';
+import {rootWithdrawLimitSaga, WithdrawLimitState} from './user/withdrawLimit';
 
 export * from './admin/config';
 export * from './admin/markets';
@@ -70,6 +72,7 @@ export * from './user/password';
 export * from './user/profile';
 export * from './user/userActivity';
 export * from './user/wallets';
+export * from './user/riyal';
 export * from './user/withdrawLimit';
 
 export interface RootState {
@@ -95,6 +98,7 @@ export interface RootState {
         apiKeys: ApiKeysState;
         auth: AuthState;
         beneficiaries: BeneficiariesState;
+        cards: CardState;
         captcha: GeetestCaptchaState;
         documentation: DocumentationState;
         documents: DocumentsState;
@@ -161,5 +165,6 @@ export function* rootSaga() {
         call(rootUserActivitySaga),
         call(rootWalletsSaga),
         call(rootWithdrawLimitSaga),
+        call(rootRiyalsSaga),
     ]);
 }

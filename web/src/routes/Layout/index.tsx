@@ -1,16 +1,16 @@
 import classnames from 'classnames';
 import * as React from 'react';
-import { Spinner } from 'react-bootstrap';
-import { injectIntl } from 'react-intl';
-import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux';
-import { Route, RouterProps, Switch } from 'react-router';
-import { Redirect, withRouter } from 'react-router-dom';
-import { compose } from 'redux';
-import { IntlProps } from '../../';
-import { minutesUntilAutoLogout, sessionCheckInterval, showLanding, wizardStep } from '../../api';
-import { ExpiredSessionModal } from '../../components';
-import { WalletsFetch } from '../../containers';
-import { applyCustomizationSettings, toggleColorTheme } from '../../helpers';
+import {Spinner} from 'react-bootstrap';
+import {injectIntl} from 'react-intl';
+import {connect, MapDispatchToProps, MapStateToProps} from 'react-redux';
+import {Route, RouterProps, Switch} from 'react-router';
+import {Redirect, withRouter} from 'react-router-dom';
+import {compose} from 'redux';
+import {ExpiredSessionModal} from 'src/components';
+import {WalletsFetch} from 'src/containers';
+import {IntlProps} from '../../';
+import {minutesUntilAutoLogout, sessionCheckInterval, showLanding, wizardStep} from '../../api';
+import {applyCustomizationSettings, toggleColorTheme} from '../../helpers';
 import {
     ChangeForgottenPasswordMobileScreen,
     ConfirmMobileScreen,
@@ -53,6 +53,7 @@ import {
 import {
     ChangeForgottenPasswordScreen,
     ConfirmScreen,
+    DepositRiyalScreen,
     DocumentationScreen,
     EmailVerificationScreen,
     ForgotPasswordScreen,
@@ -65,12 +66,12 @@ import {
     ProfileScreen,
     ProfileTwoFactorAuthScreen,
     RestrictedScreen,
+    SetupScreen,
     SignInScreen,
     SignUpScreen,
     TradingScreen,
     VerificationScreen,
     WalletsScreen,
-    SetupScreen,
 } from '../../screens';
 
 interface ReduxProps {
@@ -330,6 +331,8 @@ class LayoutComponent extends React.Component<LayoutProps, LayoutState> {
                     <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/security/2fa" component={ProfileTwoFactorAuthScreen} />
                     <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/api" component={DocumentationScreen} />
                     <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/internal-transfer" component={InternalTransfer} />
+                    <PrivateRoute loading={userLoading} isLogged={isLoggedIn} path="/deposit/riyal"
+                                  component={DepositRiyalScreen}/>
                     <Route path="**"><Redirect to="/trading/" /></Route>
                 </Switch>
                 {isLoggedIn && <WalletsFetch/>}

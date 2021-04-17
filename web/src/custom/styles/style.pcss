@@ -1,3 +1,21 @@
 @import "./fonts.pcss";
 @import "./themes/style.pcss";
 @import "./colors.pcss";
+
+.rtl {
+    direction: rtl;
+}
+
+.card {
+    background-color: var(--body-background-color);
+    border-radius: calc(var(--gap) * 0.66);
+    box-shadow: 3px 3px 10px 3px var(--shadow-color-level-1);
+    font-size: calc(var(--font-size) * 1.2);
+
+    .card-header {
+        background: var(--subheader-background-color);
+        border-bottom: 1px solid var(--divider-color-level-2);
+        color: var(--primary-text-color);
+        padding: 0 1.25rem;
+    }
+}

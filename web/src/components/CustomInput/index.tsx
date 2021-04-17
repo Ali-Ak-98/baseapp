@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { FormControl, InputGroup } from 'react-bootstrap';
+import {FormControl, InputGroup} from 'react-bootstrap';
+import NumberFormat from 'react-number-format';
 
 export interface CustomInputProps {
     type: string;
@@ -18,8 +19,7 @@ export interface CustomInputProps {
     handleClick?: ((event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void);
     isDisabled?: boolean;
     labelVisible?: boolean;
-    autoComplete?: string;
-    name?: string;
+    style?: object;
 }
 
 interface OnChangeEvent {
@@ -27,9 +27,26 @@ interface OnChangeEvent {
         value: string;
     };
 }
+
 type Props = CustomInputProps;
 
 class CustomInput extends React.Component<Props> {
+    public numberWithCommas = x => {
+        if (x) {
+            const split = x.toString().split('.');
+            if (split.length > 1) {
+                // tslint:disable-next-line:prefer-template
+                return split[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '.' + split[1];
+            } else {
+                return split[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+
+        }
+
+        return '';
+
+    };
+
     public render() {
         const {
             label,
@@ -45,8 +62,6 @@ class CustomInput extends React.Component<Props> {
             handleClick,
             isDisabled,
             onKeyPress,
-            autoComplete,
-            name,
         } = this.props;
 
         return (
@@ -56,23 +71,57 @@ class CustomInput extends React.Component<Props> {
                         {(labelVisible || inputValue) && (label || defaultLabel)}
                     </label>
                     <InputGroup size="lg">
-                        <FormControl
-                            size="lg"
-                            type={type}
-                            value={inputValue.toString()}
-                            placeholder={placeholder}
-                            autoFocus={autoFocus}
-                            onFocus={this.props.handleFocusInput}
-                            onBlur={this.props.handleFocusInput}
-                            onChange={e => this.handleChangeValue(e)}
-                            readOnly={readOnly}
-                            id={id}
-                            onClick={handleClick}
-                            disabled={isDisabled}
-                            onKeyPress={onKeyPress}
-                            autoComplete={autoComplete}
-                            name={name}
-                        />
+                        {
+                            (type === 'email' || type === 'password' || type === 'tel' || type === 'string')
+                                ?
+                                <FormControl
+                                    type={type}
+                                    value={inputValue.toString()}
+                                    placeholder={placeholder}
+                                    autoFocus={autoFocus}
+                                    onFocus={this.props.handleFocusInput}
+                                    onBlur={this.props.handleFocusInput}
+                                    onChange={e => this.handleChangeValue(e)}
+                                    readOnly={readOnly}
+                                    id={id}
+                                    onClick={handleClick}
+                                    disabled={isDisabled}
+                                    onKeyPress={onKeyPress}
+                                    className={(type === 'tel' || type === 'string') ? 'second-font w-100' : 'w-100'}
+                                />
+                                :
+                                (type === 'textarea')
+                                    ?
+                                    <textarea
+                                        rows={2}
+                                        className="w-100 rounded p-3 border text-white"
+                                        placeholder={placeholder}
+                                        onFocus={this.props.handleFocusInput}
+                                        onBlur={this.props.handleFocusInput}
+                                        onChange={e => this.handleChangeValue(e)}
+                                        id={id}
+                                        style={{background:'var(--input-background-color)'}}
+                                        disabled={isDisabled}
+                                    />
+                                    :
+                                    <NumberFormat
+                                        customInput={FormControl}
+                                        value={inputValue}
+                                        type={type !== 'text' ? type === 'password' ? 'password' : 'tel' : 'text'}
+                                        thousandSeparator={((type !== 'email' && type !== 'password' && type !== 'tel'))}
+                                        placeholder={placeholder}
+                                        autoFocus={autoFocus}
+                                        onFocus={this.props.handleFocusInput}
+                                        onBlur={this.props.handleFocusInput}
+                                        onChange={e => this.handleChangeValue(e)}
+                                        readOnly={readOnly}
+                                        id={id}
+                                        onClick={handleClick}
+                                        disabled={isDisabled}
+                                        onKeyPress={onKeyPress}
+                                        className={'w-100'}
+                                    />
+                        }
                     </InputGroup>
                 </div>
             </React.Fragment>

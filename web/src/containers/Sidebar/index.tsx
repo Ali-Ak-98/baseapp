@@ -1,16 +1,20 @@
 import classnames from 'classnames';
-import { History } from 'history';
+import {History} from 'history';
 import * as React from 'react';
-import { Dropdown } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
-import { connect, MapDispatchToPropsFunction } from 'react-redux';
-import { Link, RouteProps, withRouter } from 'react-router-dom';
-import { compose } from 'redux';
-import { languages } from '../../api/config';
-import { LogoutIcon } from '../../assets/images/sidebar/LogoutIcon';
-import { ProfileIcon } from '../../assets/images/sidebar/ProfileIcon';
-import { SidebarIcons } from '../../assets/images/sidebar/SidebarIcons';
-import { pgRoutes } from '../../constants';
+import {Dropdown} from 'react-bootstrap';
+import {FormattedMessage} from 'react-intl';
+import {connect, MapDispatchToPropsFunction} from 'react-redux';
+import {Link, RouteProps, withRouter} from 'react-router-dom';
+import {compose} from 'redux';
+
+import enIcon from 'src/assets/images/sidebar/en.svg';
+import faIcon from 'src/assets/images/sidebar/fa.svg';
+import ruIcon from 'src/assets/images/sidebar/ru.svg';
+import {languages} from '../../api/config';
+import {LogoutIcon} from '../../assets/images/sidebar/LogoutIcon';
+import {ProfileIcon} from '../../assets/images/sidebar/ProfileIcon';
+import {SidebarIcons} from '../../assets/images/sidebar/SidebarIcons';
+import {pgRoutes} from '../../constants';
 import {
     changeLanguage,
     changeUserDataFetch,
@@ -26,9 +30,6 @@ import {
     toggleSidebar,
     User,
 } from '../../modules';
-
-import enIcon from 'src/assets/images/sidebar/en.svg';
-import ruIcon from 'src/assets/images/sidebar/ru.svg';
 
 interface State {
     isOpenLanguage: boolean;
@@ -63,8 +64,8 @@ class SidebarContainer extends React.Component<Props, State> {
     };
 
     public render() {
-        const { isLoggedIn, isActive, lang } = this.props;
-        const { isOpenLanguage } = this.state;
+        const {isLoggedIn, isActive, lang} = this.props;
+        const {isOpenLanguage} = this.state;
 
         const address = this.props.history.location ? this.props.history.location.pathname : '';
         const languageName = lang.toUpperCase();
@@ -83,10 +84,11 @@ class SidebarContainer extends React.Component<Props, State> {
                 {this.renderProfileLink()}
                 <div className="pg-sidebar-wrapper-nav">{pgRoutes(isLoggedIn).map(this.renderNavItems(address))}</div>
                 <div className="pg-sidebar-wrapper-lng">
-                    <div className="btn-group pg-navbar__header-settings__account-dropdown dropdown-menu-language-container">
+                    <div
+                        className="btn-group pg-navbar__header-settings__account-dropdown dropdown-menu-language-container">
                         <Dropdown>
                             <Dropdown.Toggle variant="primary" id={languageClassName}>
-                                <img src={this.getLanguageIcon(lang)} alt={lang} />
+                                <img width={20} height={15} src={this.getLanguageIcon(lang)} alt={lang}/>
                                 <span className="dropdown-menu-language-selected">{languageName}</span>
                             </Dropdown.Toggle>
                             <Dropdown.Menu>{this.getLanguageDropdownItems()}</Dropdown.Menu>
@@ -99,7 +101,7 @@ class SidebarContainer extends React.Component<Props, State> {
     }
 
     public renderNavItems = (address: string) => (values: string[], index: number) => {
-        const { currentMarket } = this.props;
+        const {currentMarket} = this.props;
 
         const [name, url, img] = values;
         const handleLinkChange = () => this.props.toggleSidebar(false);
@@ -114,10 +116,10 @@ class SidebarContainer extends React.Component<Props, State> {
             <Link to={path} key={index} onClick={handleLinkChange} className={`${isActive && 'route-selected'}`}>
                 <div className="pg-sidebar-wrapper-nav-item">
                     <div className="pg-sidebar-wrapper-nav-item-img-wrapper">
-                        <SidebarIcons className={iconClassName} name={img} />
+                        <SidebarIcons className={iconClassName} name={img}/>
                     </div>
                     <p className="pg-sidebar-wrapper-nav-item-text">
-                        <FormattedMessage id={name} />
+                        <FormattedMessage id={name}/>
                     </p>
                 </div>
             </Link>
@@ -125,7 +127,7 @@ class SidebarContainer extends React.Component<Props, State> {
     };
 
     public renderProfileLink = () => {
-        const { isLoggedIn, location } = this.props;
+        const {isLoggedIn, location} = this.props;
         const handleLinkChange = () => this.props.toggleSidebar(false);
         const address = location ? location.pathname : '';
         const isActive = address === '/profile';
@@ -139,9 +141,9 @@ class SidebarContainer extends React.Component<Props, State> {
                 <div className="pg-sidebar-wrapper-profile">
                     <Link to="/profile" onClick={handleLinkChange} className={`${isActive && 'route-selected'}`}>
                         <div className="pg-sidebar-wrapper-profile-link">
-                            <ProfileIcon className={iconClassName} />
+                            <ProfileIcon className={iconClassName}/>
                             <p className="pg-sidebar-wrapper-profile-link-text">
-                                <FormattedMessage id={'page.header.navbar.profile'} />
+                                <FormattedMessage id={'page.header.navbar.profile'}/>
                             </p>
                         </div>
                     </Link>
@@ -151,7 +153,7 @@ class SidebarContainer extends React.Component<Props, State> {
     };
 
     public renderLogout = () => {
-        const { isLoggedIn } = this.props;
+        const {isLoggedIn} = this.props;
         if (!isLoggedIn) {
             return null;
         }
@@ -159,9 +161,9 @@ class SidebarContainer extends React.Component<Props, State> {
         return (
             <div className="pg-sidebar-wrapper-logout">
                 <div className="pg-sidebar-wrapper-logout-link" onClick={this.props.logoutFetch}>
-                    <LogoutIcon className="pg-sidebar-wrapper-logout-link-img" />
+                    <LogoutIcon className="pg-sidebar-wrapper-logout-link-img"/>
                     <p className="pg-sidebar-wrapper-logout-link-text">
-                        <FormattedMessage id={'page.body.profile.content.action.logout'} />
+                        <FormattedMessage id={'page.body.profile.content.action.logout'}/>
                     </p>
                 </div>
             </div>
@@ -172,7 +174,7 @@ class SidebarContainer extends React.Component<Props, State> {
         return languages.map((l: string, index: number) => (
             <Dropdown.Item key={index} onClick={(e) => this.handleChangeLanguage(l)}>
                 <div className="dropdown-row">
-                    <img src={this.getLanguageIcon(l)} alt={l} />
+                    <img width={20} height={15} src={this.getLanguageIcon(l)} alt={l}/>
                     <span>{l.toUpperCase()}</span>
                 </div>
             </Dropdown.Item>
@@ -180,7 +182,9 @@ class SidebarContainer extends React.Component<Props, State> {
     };
 
     private getLanguageIcon = (name: string): string => {
-        if (name === 'ru') {
+        if (name === 'fa') {
+            return faIcon;
+        } else if (name === 'ru') {
             return ruIcon;
         } else {
             return enIcon;
@@ -188,7 +192,7 @@ class SidebarContainer extends React.Component<Props, State> {
     };
 
     private handleChangeLanguage = (language: string) => {
-        const { user, isLoggedIn } = this.props;
+        const {user, isLoggedIn} = this.props;
 
         if (isLoggedIn) {
             const data = user.data && JSON.parse(user.data);
@@ -202,7 +206,7 @@ class SidebarContainer extends React.Component<Props, State> {
                     }),
                 };
 
-                this.props.changeUserDataFetch({ user: payload });
+                this.props.changeUserDataFetch({user: payload});
             }
         }
 
