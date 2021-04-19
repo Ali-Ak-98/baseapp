@@ -34,6 +34,7 @@ class ProfileVerificationComponent extends React.Component<Props> {
 
     public renderProgressBarStep = (step: string, index: number, labels: Label[]) => {
         const targetLabelStatus = this.handleCheckLabel(labels, step);
+        console.log(targetLabelStatus)
 
         switch (targetLabelStatus) {
             case 'verified':
@@ -229,7 +230,7 @@ class ProfileVerificationComponent extends React.Component<Props> {
 
         return (
             <div className="pg-profile-page__box pg-profile-page-verification">
-                <h3 className="pg-profile-page-verification__title">
+                <h3 className="pg-profile-page-verification__title text-right my-2">
                     <FormattedMessage id="page.body.profile.header.account.profile" />
                 </h3>
                 {this.renderProgressBar(labels)}

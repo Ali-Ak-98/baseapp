@@ -48,9 +48,9 @@ const DepositOnline: React.FC<Props> = (props: Props) => {
     }
 
     const customStyle = {
-        control: styles => ({...styles, minHeight: 'auto', height: '29px'}),
+        control: styles => ({...styles, minHeight: 'auto', height: '35px'}),
         dropdownIndicator: styles => ({...styles, padding: '0 8px'}),
-        valueContainer: styles => ({...styles, height: '29px'}),
+        valueContainer: styles => ({...styles, height: '35px'}),
         input: styles => ({...styles, padding: '0', margin: '0'}),
         option: styles => ({...styles, color: 'black', padding: '4px 8px'}),
         menu: styles => ({...styles, margin: '4px 0'}),
@@ -107,7 +107,7 @@ const DepositOnline: React.FC<Props> = (props: Props) => {
                                     onChange={handleChangeCard}
                                 />
                             </div>
-                            <div className="col-4">
+                            <div className="col-4 d-flex">
                                 <Button className="btn btn-block btn-info text-white" onClick={handleAddCard}>
                                     {translate('page.body.deposit.online.button.addCard')}
                                 </Button>

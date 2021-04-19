@@ -25,7 +25,7 @@ class ProfileComponent extends React.Component<RouterProps, IntlProps> {
             <div className="container pg-profile-page">
                 <div className="pg-profile-page__details">
                     <div className="row pg-profile-page-header pg-profile-page-header-first">
-                        <h3 className="col-12">
+                        <h3 className="col-12 text-right">
                             <FormattedMessage id="page.body.profile.header.account"/>
                         </h3>
                     </div>

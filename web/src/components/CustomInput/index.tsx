@@ -66,17 +66,19 @@ class CustomInput extends React.Component<Props> {
 
         return (
             <React.Fragment>
-                <div className="custom-input">
+                <div className="custom-input position-relative">
                     <label className={classNameLabel}>
                         {(labelVisible || inputValue) && (label || defaultLabel)}
                     </label>
                     <InputGroup size="lg">
                         {
-                            (type === 'email' || type === 'password' || type === 'tel' || type === 'string')
+                            (type === 'number')
                                 ?
-                                <FormControl
-                                    type={type}
-                                    value={inputValue.toString()}
+                                <NumberFormat
+                                    customInput={FormControl}
+                                    value={inputValue}
+                                    type={'text'}
+                                    thousandSeparator={true}
                                     placeholder={placeholder}
                                     autoFocus={autoFocus}
                                     onFocus={this.props.handleFocusInput}
@@ -87,7 +89,7 @@ class CustomInput extends React.Component<Props> {
                                     onClick={handleClick}
                                     disabled={isDisabled}
                                     onKeyPress={onKeyPress}
-                                    className={(type === 'tel' || type === 'string') ? 'second-font w-100' : 'w-100'}
+                                    className={'w-100 rtl'}
                                 />
                                 :
                                 (type === 'textarea')
@@ -104,11 +106,9 @@ class CustomInput extends React.Component<Props> {
                                         disabled={isDisabled}
                                     />
                                     :
-                                    <NumberFormat
-                                        customInput={FormControl}
-                                        value={inputValue}
-                                        type={type !== 'text' ? type === 'password' ? 'password' : 'tel' : 'text'}
-                                        thousandSeparator={((type !== 'email' && type !== 'password' && type !== 'tel'))}
+                                    <FormControl
+                                        type={type}
+                                        value={inputValue.toString()}
                                         placeholder={placeholder}
                                         autoFocus={autoFocus}
                                         onFocus={this.props.handleFocusInput}
@@ -119,7 +119,7 @@ class CustomInput extends React.Component<Props> {
                                         onClick={handleClick}
                                         disabled={isDisabled}
                                         onKeyPress={onKeyPress}
-                                        className={'w-100'}
+                                        className={(type === 'tel' || type === 'string') ? 'second-font w-100 rtl' : 'w-100 rtl'}
                                     />
                         }
                     </InputGroup>

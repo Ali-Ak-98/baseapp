@@ -6,7 +6,7 @@ import { formatCCYAddress } from '../../helpers';
 import { selectMobileDeviceState, Wallet } from '../../modules';
 import { CopyableTextField } from '../CopyableTextField';
 import { MetaMaskButton } from '../MetaMaskButton';
-import { QRCode } from '../QRCode';
+import {EasyQRCode} from 'src/components/EasyQRCode';
 
 export interface DepositCryptoProps {
     /**
@@ -103,7 +103,7 @@ const DepositCrypto: React.FunctionComponent<DepositCryptoProps> = (props: Depos
                 <p className="cr-deposit-info">{text}</p>
                 {walletAddress ? (
                     <div className="d-none d-md-block qr-code-wrapper">
-                        <QRCode dimensions={size} data={walletAddress}/>
+                        <EasyQRCode dimensions={size} data={walletAddress}/>
                     </div>
                 ) : null}
             </div>
