@@ -83,18 +83,18 @@ class SidebarContainer extends React.Component<Props, State> {
             <div className={sidebarClassName}>
                 {this.renderProfileLink()}
                 <div className="pg-sidebar-wrapper-nav">{pgRoutes(isLoggedIn).map(this.renderNavItems(address))}</div>
-                <div className="pg-sidebar-wrapper-lng">
-                    <div
-                        className="btn-group pg-navbar__header-settings__account-dropdown dropdown-menu-language-container">
-                        <Dropdown>
-                            <Dropdown.Toggle variant="primary" id={languageClassName}>
-                                <img width={20} height={15} src={this.getLanguageIcon(lang)} alt={lang}/>
-                                <span className="dropdown-menu-language-selected">{languageName}</span>
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>{this.getLanguageDropdownItems()}</Dropdown.Menu>
-                        </Dropdown>
-                    </div>
-                </div>
+                {/*<div className="pg-sidebar-wrapper-lng">*/}
+                {/*    <div*/}
+                {/*        className="btn-group pg-navbar__header-settings__account-dropdown dropdown-menu-language-container">*/}
+                {/*        <Dropdown>*/}
+                {/*            <Dropdown.Toggle variant="primary" id={languageClassName}>*/}
+                {/*                <img width={20} height={15} src={this.getLanguageIcon(lang)} alt={lang}/>*/}
+                {/*                <span className="dropdown-menu-language-selected">{languageName}</span>*/}
+                {/*            </Dropdown.Toggle>*/}
+                {/*            <Dropdown.Menu>{this.getLanguageDropdownItems()}</Dropdown.Menu>*/}
+                {/*        </Dropdown>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 {this.renderLogout()}
             </div>
         );

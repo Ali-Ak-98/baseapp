@@ -17,7 +17,7 @@
     &-settings {
       align-items: center;
       display: inherit;
-      float: right;
+      float: left;
 
       &__switcher {
         align-items: center;
@@ -54,7 +54,7 @@
 
       &__account-dropdown {
         cursor: pointer;
-        margin-right: calc(var(--gap) * 1);
+        margin-left: calc(var(--gap) * 1);
         width: calc(var(--big-gap) * 1.2);
 
         &:hover {
@@ -67,7 +67,7 @@
           color: var(--dropdown-text-color);
 
           img {
-            margin-right: 5px;
+            margin-left: 5px;
           }
         }
 
@@ -81,7 +81,7 @@
           background-color: var(--dropdown-background-color);
           border-radius: var(--gap);
           cursor: pointer !important;
-          margin: calc(var(--gap) * 0.333) 0 0 calc(var(--gap) * -0.167);
+          margin: calc(var(--gap) * 0.333) calc(var(--gap) * -0.167) 0 0;
           padding-bottom: 0;
           padding-top: 0;
           position: absolute;
@@ -105,28 +105,28 @@
 
             &:first-child {
               &:hover {
-                border-top-left-radius: var(--gap);
                 border-top-right-radius: var(--gap);
+                border-top-left-radius: var(--gap);
               }
             }
 
             &:last-child {
               &:hover {
-                border-bottom-left-radius: var(--gap);
                 border-bottom-right-radius: var(--gap);
+                border-bottom-left-radius: var(--gap);
               }
             }
           }
         }
 
         .dropdown-toggle::after {
-          margin-left: calc(var(--gap) * 1.1);
+          margin-right: calc(var(--gap) * 1.1);
           transition: 0.2s;
         }
 
         .show {
           .dropdown-toggle::after {
-            transform: rotate(-180deg);
+            transform: rotate(180deg);
           }
         }
       }
@@ -149,13 +149,13 @@
     color: var(--dropdown-toggle-color);
     font-size: calc(var(--gap) * 3.33);
     line-height: normal;
-    margin-left: var(--gap);
+    margin-right: var(--gap);
     text-align: center;
     user-select: none;
 
     .icon {
       color: var(--navbar-text-color);
-      margin-left: calc(var(--gap) * 0.5);
+      margin-right: calc(var(--gap) * 0.5);
     }
 
     &::after {
@@ -166,7 +166,7 @@
 
 #dropdown-menu-language-field {
   img {
-    margin-right: 5px;
+    margin-left: 5px;
   }
 }
 
@@ -177,7 +177,7 @@
   flex-direction: row;
 
   img {
-    margin-right: 5px;
+    margin-left: 5px;
   }
 }
 
@@ -207,9 +207,9 @@
         display: block;
         padding: 0;
         padding-bottom: calc(var(--gap) * 2);
-        padding-left: calc(var(--gap) * 2);
+        padding-right: calc(var(--gap) * 2);
         text-align: center;
-        text-align: left;
+        text-align: right;
         width: 100%;
 
         &--active {
@@ -247,11 +247,11 @@
 
         .icon {
           height: 12px;
-          margin-left: calc(var(--gap) * 2);
+          margin-right: calc(var(--gap) * 2);
         }
 
         .dropdown-menu-language {
-          right: -50px;
+          left: -50px;
           top: -66px;
         }
       }
@@ -267,12 +267,12 @@
         span {
           color: var(--color-white);
           font-size: 14px;
-          margin-left: calc(var(--gap) * 2);
+          margin-right: calc(var(--gap) * 2);
         }
 
         &-logout {
           position: absolute;
-          right: 25px;
+          left: 25px;
           top: 3px;
           width: 25px;
         }

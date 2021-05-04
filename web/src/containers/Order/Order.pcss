@@ -1,6 +1,6 @@
 .pg-order {
   margin: 0;
-  text-align: left;
+  text-align: right;
 
   .cr-table-header__content {
     display: none;
@@ -15,7 +15,7 @@
 
     input {
       color: var(--input-text-color);
-      text-align: left;
+      text-align: right;
 
       &:placeholder-shown {
         color: var(--input-placeholder-color) !important;
@@ -78,7 +78,7 @@
             background-color: var(--input-background-color);
             color: var(--input-legend-color);
             font-size: calc(var(--gap) * 1.5);
-            margin-left: calc(var(--gap) * 1.75);
+            margin-right: calc(var(--gap) * 1.75);
             padding: 0 calc(var(--gap) * 0.75);
             top: calc(var(--gap) * 1.6);
           }
@@ -91,15 +91,15 @@
             }
 
             &__fieldset {
-              border-bottom-left-radius: calc(var(--gap) * 0.571);
-              border-top-left-radius: calc(var(--gap) * 0.571);
+              border-bottom-right-radius: calc(var(--gap) * 0.571);
+              border-top-right-radius: calc(var(--gap) * 0.571);
               padding: calc(var(--gap) * 0.75) calc(var(--gap) * 1.5);
 
               &__label {
                 background-color: var(--input-background-color);
                 color: var(--input-legend-color);
                 font-size: calc(var(--gap) * 1.5);
-                margin-left: calc(var(--gap) * -0.35);
+                margin-right: calc(var(--gap) * -0.35);
                 padding: 0 calc(var(--gap) * 0.75);
                 position: absolute;
                 top: -10px;
@@ -107,7 +107,7 @@
               }
 
               &__input {
-                margin-left: calc(var(--gap) * 0.25);
+                margin-right: calc(var(--gap) * 0.25);
 
                 input {
                   color: var(--input-text-color);
@@ -121,8 +121,8 @@
             }
 
             &__crypto-icon {
-              border-bottom-right-radius: calc(var(--gap) * 0.571);
-              border-top-right-radius: calc(var(--gap) * 0.571);
+              border-bottom-left-radius: calc(var(--gap) * 0.571);
+              border-top-left-radius: calc(var(--gap) * 0.571);
               font-size: calc(var(--gap) * 1.75);
               margin-top: calc(var(--gap) * 1.15);
 
@@ -249,8 +249,8 @@
     &__buy {
       .cr-tab-panel {
         &__navigation-container {
-          border-right: 1px solid var(--divider-color-level-2);
-          border-top-right-radius: 0;
+          border-left: 1px solid var(--divider-color-level-2);
+          border-top-left-radius: 0;
         }
 
         .cr-tab-content .cr-order-form .cr-order-item:last-child {
@@ -271,7 +271,7 @@
 
     &__sell {
       .cr-tab-panel__navigation-container {
-        border-top-left-radius: 0;
+        border-top-right-radius: 0;
       }
     }
 
@@ -281,7 +281,7 @@
           color: var(--tab-panel-text-color);
           cursor: default;
           justify-content: start;
-          padding-left: calc(var(--gap) * 2);
+          padding-right: calc(var(--gap) * 2);
 
           &__active {
             color: var(--tab-panel-text-color-active);
@@ -302,9 +302,9 @@
     display: flex;
     height: 100%;
     justify-content: center;
-    left: 0;
-    position: absolute;
     right: 0;
+    position: absolute;
+    left: 0;
     top: 0;
   }
 }
@@ -329,21 +329,21 @@
 
         &__dropdown__label {
           font-size: calc(var(--gap) * 2);
-          margin-left: calc(var(--gap) * 1.55);
+          margin-right: calc(var(--gap) * 1.55);
           padding: 0 var(--gap);
           top: calc(var(--gap) * 1.6);
         }
 
         .cr-order-input {
           &__fieldset {
-            border-bottom-left-radius: calc(var(--gap) * 0.761);
-            border-top-left-radius: calc(var(--gap) * 0.761);
+            border-bottom-right-radius: calc(var(--gap) * 0.761);
+            border-top-right-radius: calc(var(--gap) * 0.761);
             margin-top: calc(var(--gap) * 1.3);
             padding: 0 calc(var(--gap) * 2);
 
             &__label {
               font-size: calc(var(--gap) * 2);
-              margin-left: calc(var(--gap) * -0.6);
+              margin-right: calc(var(--gap) * -0.6);
               padding: 0 var(--gap);
             }
 
@@ -351,7 +351,7 @@
               align-items: center;
               display: flex;
               height: 100%;
-              margin-left: calc(var(--gap) * 0.34);
+              margin-right: calc(var(--gap) * 0.34);
 
               input,
               &__price {
@@ -362,8 +362,8 @@
           }
 
           &__crypto-icon {
-            border-bottom-right-radius: calc(var(--gap) * 0.761);
-            border-top-right-radius: calc(var(--gap) * 0.761);
+            border-bottom-left-radius: calc(var(--gap) * 0.761);
+            border-top-left-radius: calc(var(--gap) * 0.761);
             font-size: calc(var(--gap) * 2.34);
             margin-top: calc(var(--gap) * 1.11);
           }

@@ -28,7 +28,7 @@
 
     &__icon {
       height: 11px;
-      margin-right: 10px;
+      margin-left: 10px;
       width: 11px;
     }
 
@@ -40,7 +40,7 @@
   .beneficiaries-add-address-modal--coin .cr-email-form {
     .pg-beneficiaries__error-text {
       color: var(--system-red);
-      margin-left: 16px;
+      margin-right: 16px;
     }
   }
 
@@ -57,7 +57,7 @@
       width: 100%;
 
       &__icon {
-        margin: 0 19px 0 10px;
+        margin: 0 10px 0 19px;
         width: 44px;
       }
 
@@ -69,7 +69,7 @@
         font-style: normal;
         font-weight: normal;
         line-height: 20px;
-        margin: 0 10px 0 0;
+        margin: 0 0 0 10px;
       }
     }
   }
@@ -90,7 +90,7 @@
       flex-direction: row;
       height: 70px;
       justify-content: space-between;
-      padding: 0 22px 0 13px;
+      padding: 0 13px 0 22px;
       transition: 0.2s;
       user-select: none;
       width: 100%;
@@ -116,7 +116,7 @@
           font-style: normal;
           font-weight: 500;
           line-height: 12px;
-          margin-right: 12px;
+          margin-left: 12px;
           margin-top: 9px;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -133,7 +133,7 @@
         &__tip {
           display: flex;
           height: 13px;
-          margin-right: 28px;
+          margin-left: 28px;
           margin-top: -1px;
           width: 13px;
 
@@ -153,7 +153,7 @@
           font-style: normal;
           font-weight: normal;
           line-height: 12px;
-          margin-right: 12px;
+          margin-left: 12px;
         }
 
         &__pending {
@@ -192,7 +192,7 @@
       display: flex;
       padding: 24px;
       position: absolute;
-      right: -80px;
+      left: -80px;
       top: 110px;
       width: 70%;
       z-index: 120;
@@ -241,8 +241,8 @@
 
     &--open {
       background: var(--primary-cta-color);
-      border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
 
       .select__left {
         &__title {
@@ -264,7 +264,7 @@
         }
 
         &__chevron {
-          transform: rotate(-180deg);
+          transform: rotate(180deg);
         }
       }
     }
@@ -272,8 +272,8 @@
     &__body {
       align-items: center;
       background-color: var(--dropdown-background-color);
-      border-bottom-left-radius: 4px;
       border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -290,7 +290,7 @@
         display: flex;
         flex-direction: row;
         height: 70px;
-        padding: 0 22px 0 13px;
+        padding: 0 13px 0 22px;
         width: 100%;
 
         &--pending {
@@ -318,7 +318,7 @@
             font-style: normal;
             font-weight: 500;
             line-height: 12px;
-            margin-right: 12px;
+            margin-left: 12px;
             margin-top: 9px;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -333,7 +333,7 @@
           width: 25%;
 
           &__pending {
-            margin-right: 15px;
+            margin-left: 15px;
           }
 
           &__delete {
@@ -363,8 +363,8 @@
       .add {
         align-items: center;
         background-color: var(--dropdown-background-color);
-        border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
         border-top: 1px solid var(--wallets-item-border);
         cursor: pointer;
         display: flex;
@@ -384,7 +384,7 @@
 
         &__icon {
           height: 11px;
-          margin-right: 10px;
+          margin-left: 10px;
           width: 11px;
         }
 
@@ -401,7 +401,7 @@
         width: 37.5%;
 
         &:first-child {
-          margin-right: 30px;
+          margin-left: 30px;
         }
       }
     }
@@ -409,14 +409,14 @@
 
   .cr-email-form {
     background: var(--body-background-color);
-    border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
     box-shadow: 0 8px 25px var(--shadow-color-level-3);
 
     &__option {
       background: var(--subheader-background-color);
-      border-top-left-radius: 3px;
       border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
 
       &-inner {
         color: var(--primary-text-color);
@@ -532,7 +532,7 @@
 @media screen and (max-width: 1024px) {
   .pg-beneficiaries__dropdown__tip,
   .tip {
-    right: 0 !important;
+    left: 0 !important;
   }
 }
 

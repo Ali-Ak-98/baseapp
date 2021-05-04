@@ -11,14 +11,14 @@
   height: 100vh;
   justify-content: space-between;
   position: fixed;
-  right: 0;
+  left: 0;
   top: 0;
   transition: 0.3s;
   width: 340px;
   z-index: 30000;
 
   &--hidden {
-    margin-right: -340px;
+    margin-left: -340px;
     transition: 0.3s;
 
     .pg-customization__toggler {
@@ -69,11 +69,11 @@
         user-select: none;
 
         &:first-child {
-          margin-left: 12px;
+          margin-right: 12px;
         }
 
         &:last-child {
-          margin-right: 12px;
+          margin-left: 12px;
         }
 
         &:hover,
@@ -156,7 +156,7 @@
     display: flex;
     height: 60px;
     justify-content: center;
-    margin-left: -96px;
+    margin-right: -96px;
     position: absolute;
     top: calc(100vh - 96px);
     transition: 0.2s;

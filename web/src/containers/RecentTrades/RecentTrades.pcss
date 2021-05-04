@@ -4,7 +4,7 @@
 
     .cr-table td,
     .cr-table th {
-      text-align: right;
+      text-align: left;
 
       &:nth-child(2) {
         text-align: center;
@@ -14,7 +14,7 @@
 
     .cr-table td {
       &:nth-child(1) {
-        text-align: right;
+        text-align: left;
         width: 1%;
       }
     }
@@ -28,10 +28,10 @@
 
   .cr-table td,
   .cr-table th {
-    text-align: right;
+    text-align: left;
 
     &:first-child {
-      text-align: left;
+      text-align: right;
       width: 50%;
     }
 
@@ -56,8 +56,8 @@
 
   .cr-tab-panel {
     &__navigation-container {
-      border-top-left-radius: calc(var(--gap) * 0.5);
       border-top-right-radius: calc(var(--gap) * 0.5);
+      border-top-left-radius: calc(var(--gap) * 0.5);
       flex-direction: row-reverse;
       margin-bottom: 0;
       position: relative;
@@ -86,7 +86,7 @@
       &__noData {
         .cr-table td,
         .cr-table th {
-          text-align: right;
+          text-align: left;
 
           &:nth-child(2) {
             text-align: center;
@@ -100,9 +100,9 @@
         bottom: 0;
         display: flex;
         justify-content: center;
-        left: 0;
-        position: fixed;
         right: 0;
+        position: fixed;
+        left: 0;
         top: calc(var(--gap) * 4.5);
       }
     }
@@ -119,13 +119,13 @@
   .pg-recent-trades {
     .cr-tab-panel {
       &__optinal-head {
-        padding-left: calc(var(--gap) * 1.5);
-        padding-right: calc(var(--gap) * 1);
+        padding-right: calc(var(--gap) * 1.5);
+        padding-left: calc(var(--gap) * 1);
       }
 
       .cr-tab {
-        padding-left: calc(var(--gap) * 1.5);
         padding-right: calc(var(--gap) * 1.5);
+        padding-left: calc(var(--gap) * 1.5);
       }
     }
   }

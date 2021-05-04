@@ -53,7 +53,7 @@ const RenderDeviceContainers = () => {
             <React.Fragment>
                 <HeaderContainer />
                 <SidebarContainer />
-                <CustomizationContainer />
+                {/*<CustomizationContainer />*/}
                 <AlertsContainer />
                 <LayoutContainer />
             </React.Fragment>

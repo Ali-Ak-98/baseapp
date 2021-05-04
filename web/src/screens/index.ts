@@ -19,3 +19,4 @@ export * from './MaintenanceScreen';
 export * from './DepositRiyalScreen';
 export * from './SetupScreen';
 export * from './InternalTransfer';
+export * from './CardsScreen';

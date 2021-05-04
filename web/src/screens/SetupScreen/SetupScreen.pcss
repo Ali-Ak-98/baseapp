@@ -28,7 +28,7 @@
       &__close {
         cursor: pointer;
         position: absolute;
-        right: 24px;
+        left: 24px;
         top: 24px;
       }
     }
@@ -53,7 +53,7 @@
         font-size: 12px;
         height: 24px;
         margin-bottom: 12px;
-        padding-left: 35px;
+        padding-right: 35px;
         position: relative;
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -73,7 +73,7 @@
         background-color: var(--setup-markets-checkbox-bg);
         border-radius: 4px;
         height: 25px;
-        left: 0;
+        right: 0;
         position: absolute;
         top: 0;
         width: 25px;
@@ -99,19 +99,19 @@
 
       .checkbox-container .checkmark::after {
         border: solid var(--setup-info-secondary-font-color);
-        border-width: 0 3px 3px 0;
+        border-width: 0 0 3px 3px;
         height: 13px;
-        left: 9px;
+        right: 9px;
         top: 5px;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
         width: 7px;
       }
 
       a {
         color: var(--setup-info-secondary-font-color);
-        margin-left: 4px;
+        margin-right: 4px;
         text-decoration: underline;
 
         &:hover {
@@ -175,7 +175,7 @@
 
     &__step-footer {
       button {
-        float: right;
+        float: left;
         margin-bottom: 0;
         margin-top: 48px;
         position: unset;
@@ -183,7 +183,7 @@
 
       &__congrat {
         button {
-          float: right;
+          float: left;
           margin-bottom: 0;
           margin-top: 60px;
           position: unset;
@@ -198,7 +198,7 @@
       button {
         position: relative;
         width: 100%;
-        float: right;
+        float: left;
         margin: 0;
         position: unset;
         bottom: unset;

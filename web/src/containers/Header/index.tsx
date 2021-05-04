@@ -78,14 +78,16 @@ class Head extends React.Component<Props> {
                     <div onClick={(e) => this.redirectToLanding()} className="pg-header__logo">
                         <Logo />
                     </div>
-                    {this.renderMarketToggler()}
                     <div className="pg-header__location">
                         {mobileWallet ? <span>{mobileWallet}</span> : <span>{location.pathname.split('/')[1]}</span>}
                     </div>
                     {this.renderMobileWalletNav()}
                     <div className="pg-header__navbar">
+                        <div className="d-flex">
+                            <NavBar onLinkChange={this.closeMenu} />
+                            {this.renderMarketToggler()}
+                        </div>
                         {this.renderMarketToolbar()}
-                        <NavBar onLinkChange={this.closeMenu} />
                     </div>
                 </div>
             </header>

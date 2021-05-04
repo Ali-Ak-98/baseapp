@@ -30,21 +30,18 @@ class ProfileComponent extends React.Component<RouterProps, IntlProps> {
                         </h3>
                     </div>
                     <div className="row">
+                        <div className="col-12 col-md-6">
+                            <ProfileVerification/>
+                        </div>
                         <div className="col-12 col-md-6 mx-0">
                             <div className="row col-12 mx-0">
                                 <ProfileAuthDetails/>
                                 <ReferralProgram/>
                             </div>
                         </div>
-                        <div className="col-12 col-md-6">
-                            <ProfileVerification/>
-                        </div>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-12">
-                        <BankInfo/>
-                    </div>
                     <div className="col-12">
                         <ProfileApiKeys/>
                     </div>

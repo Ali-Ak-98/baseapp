@@ -19,11 +19,11 @@
               td:nth-child(2) {
                 bottom: 0;
                 color: var(--secondary-contrast-cta-color);
-                left: 0;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                position: absolute;
                 right: 0;
+                padding-right: 0 !important;
+                padding-left: 0 !important;
+                position: absolute;
+                left: 0;
                 text-align: center !important;
                 width: 100% !important;
               }
@@ -42,11 +42,11 @@
             tr {
               td:nth-child(2) {
                 color: var(--secondary-contrast-cta-color);
-                left: 0;
-                padding-left: 0 !important;
-                padding-right: 0 !important;
-                position: absolute;
                 right: 0;
+                padding-right: 0 !important;
+                padding-left: 0 !important;
+                position: absolute;
+                left: 0;
                 text-align: center !important;
                 width: 100% !important;
               }
@@ -80,21 +80,21 @@
     .cr-table {
       &__head {
         th:first-child {
-          text-align: right;
+          text-align: left;
         }
 
         th:nth-child(2) {
-          text-align: right;
+          text-align: left;
         }
       }
 
       &__body {
         td:first-child {
-          text-align: right;
+          text-align: left;
         }
 
         td:nth-child(2) {
-          text-align: right;
+          text-align: left;
         }
       }
 
@@ -111,10 +111,10 @@
       position: relative;
 
       .cr-combined-order-book__market {
-        left: 0;
+        right: 0;
         margin-top: 0;
         position: absolute;
-        right: 0;
+        left: 0;
         top: calc(50% - 25px) !important;
       }
 
@@ -140,9 +140,9 @@
 
         &:first-child {
           flex-direction: column-reverse;
-          left: 0;
-          overflow-x: hidden;
           right: 0;
+          overflow-x: hidden;
+          left: 0;
           top: 0;
 
           .cr-table {
@@ -151,8 +151,8 @@
             }
 
             &-background {
-              left: 0;
               right: 0;
+              left: 0;
               top: calc(var(--gap) * 7);
             }
 
@@ -171,8 +171,8 @@
 
         &:last-child {
           border-top: 1px solid var(--order-book-last-market-price-border-color);
-          left: 0;
           right: 0;
+          left: 0;
           top: calc(50% + 35px);
 
           .cr-table {
@@ -202,7 +202,7 @@
       overflow-y: scroll;
 
       .cr-order-book {
-        padding-right: 0;
+        padding-left: 0;
       }
 
       .cr-table {
@@ -213,13 +213,13 @@
           z-index: 222;
 
           th:first-child {
-            text-align: left;
+            text-align: right;
           }
         }
 
         tbody {
           td:first-child {
-            text-align: left;
+            text-align: right;
           }
 
           &::before {
@@ -239,7 +239,7 @@
         top: 36px;
 
         &__row {
-          margin-right: 1px;
+          margin-left: 1px;
           padding-bottom: calc(var(--gap) * 1.5);
         }
       }

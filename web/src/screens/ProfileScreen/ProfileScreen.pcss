@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   height: 100%;
   margin-bottom: 24px !important;
-  direction: rtl;
+  direction: ltr;
 
   h1,
   h2,
@@ -27,7 +27,7 @@
   &__details {
     background-color: var(--body-background-color);
     border-radius: calc(var(--gap) * 0.66);
-    box-shadow: 3px 3px 10px 3px var(--shadow-color-level-1);
+    box-shadow: -3px 3px 10px 3px var(--shadow-color-level-1);
     margin-top: calc(var(--gap) * 2);
     width: 100%;
 
@@ -53,13 +53,13 @@
     border-radius: calc(var(--gap) * 0.66) calc(var(--gap) * 0.66) 0 0;
     color: var(--primary-text-color);
     display: flex;
-    margin-left: 0;
     margin-right: 0;
-    padding: 0 calc(var(--gap) * 3) 0 calc(var(--gap) * 3.4);
+    margin-left: 0;
+    padding: 0 calc(var(--gap) * 3.4) 0 calc(var(--gap) * 3);
   }
 
   &__box {
-    padding: calc(var(--gap) * 4) calc(var(--gap) * 4) calc(var(--gap) * 4) calc(var(--gap) * 1);
+    padding: calc(var(--gap) * 4) calc(var(--gap) * 1) calc(var(--gap) * 4) calc(var(--gap) * 4);
     width: 100%;
 
     &-header {
@@ -78,7 +78,7 @@
     width: 100%;
 
     .pg-profile-page__btn-secondary-change {
-      margin: calc(var(--big-gap) / 3) 0 0 calc(var(--big-gap) / 3);
+      margin: calc(var(--big-gap) / 3) calc(var(--big-gap) / 3) 0 0;
     }
 
     label {
@@ -113,7 +113,7 @@
   &__col {
     align-items: center;
     display: flex;
-    float: right;
+    float: left;
     width: 45%;
   }
 
@@ -126,7 +126,7 @@
         margin-bottom: calc(var(--gap) * 2);
 
         .cr-avatar {
-          margin-right: calc(var(--gap) * 3);
+          margin-left: calc(var(--gap) * 3);
         }
 
         .pg-profile-page__text-muted {
@@ -159,7 +159,7 @@
 
           p.text-muted {
             margin-top: 0;
-            padding-right: calc(var(--gap) * 5);
+            padding-left: calc(var(--gap) * 5);
           }
         }
       }
@@ -173,7 +173,7 @@
             cursor: pointer;
             display: inline-block;
             height: calc(var(--gap) * 2.5);
-            margin-left: calc(var(--gap) * 2.6);
+            margin-right: calc(var(--gap) * 2.6);
             margin-top: -1px;
             position: absolute;
             width: calc(var(--gap) * 2.5);
@@ -233,7 +233,7 @@
   &__activity {
     background: var(--body-background-color);
     border-radius: calc(var(--gap) * 0.66);
-    box-shadow: 3px 3px 10px 3px var(--shadow-color-level-1);
+    box-shadow: -3px 3px 10px 3px var(--shadow-color-level-1);
     margin-top: calc(var(--gap) * 2);
     width: 100%;
 
@@ -273,14 +273,14 @@
       th,
       td {
         padding: calc(var(--gap) * 3) 0 calc(var(--gap) * 3) 0 !important;
-        text-align: right;
+        text-align: left;
 
         &:first-child {
-          padding-left: 24px !important;
+          padding-right: 24px !important;
         }
 
         &:last-child {
-          padding-right: 18px !important;
+          padding-left: 18px !important;
         }
       }
 
@@ -296,7 +296,7 @@
   &__api-keys {
     background: var(--body-background-color);
     border-radius: calc(var(--gap) * 0.66);
-    box-shadow: 3px 3px 10px 3px var(--shadow-color-level-1);
+    box-shadow: -3px 3px 10px 3px var(--shadow-color-level-1);
     margin-top: calc(var(--gap) * 2);
     width: 100%;
 
@@ -309,18 +309,18 @@
       th,
       td {
         padding: calc(var(--gap) * 3) 0 calc(var(--gap) * 3) 0 !important;
-        text-align: right;
+        text-align: left;
 
         &:nth-child(4n-1) {
-          text-align: right;
+          text-align: left;
         }
 
         &:first-child {
-          padding-left: 24px !important;
+          padding-right: 24px !important;
         }
 
         &:last-child {
-          padding-right: 18px !important;
+          padding-left: 18px !important;
         }
 
         &:nth-child(4) {
@@ -341,7 +341,7 @@
 
     &__header {
       width: 100%;
-      text-align: right;
+      text-align: left;
 
       span {
         cursor: pointer;
@@ -374,7 +374,7 @@
     &__state-checkbox {
       height: 0;
       position: absolute;
-      text-align: left;
+      text-align: right;
       top: -14px;
     }
 
@@ -387,9 +387,9 @@
       margin: calc(var(--gap) * 3);
 
       .secret-sign {
-        float: left;
+        float: right;
         font-size: calc(var(--gap) * 5);
-        padding: calc(var(--gap) * 0.5) calc(var(--gap) * 1) 0 0;
+        padding: calc(var(--gap) * 0.5) 0 0 calc(var(--gap) * 1);
       }
 
       .secret-warning {
@@ -414,7 +414,7 @@
     .button-confirmation {
       bottom: calc(var(--gap) * 4.33);
       margin: calc(var(--gap) * 3);
-      padding-left: calc(var(--gap) * 0.66);
+      padding-right: calc(var(--gap) * 0.66);
 
       input {
         margin: auto;
@@ -442,7 +442,7 @@
         fieldset {
           border: 1px solid var(--input-border-color);
           border-radius: var(--gap);
-          padding: 0 8px 0 9px;
+          padding: 0 9px 0 8px;
 
           legend {
             color: var(--input-legend-color);
@@ -488,7 +488,7 @@
     cursor: pointer;
     display: inline-block;
     height: calc(var(--gap) * 2.5);
-    margin-left: calc(var(--gap) / 1.33);
+    margin-right: calc(var(--gap) / 1.33);
     overflow: hidden;
     position: relative;
     width: calc(var(--gap) * 2.5);
@@ -506,7 +506,7 @@
       background: var(--secondary-contrast-cta-color);
       content: "";
       height: 2px;
-      left: 0;
+      right: 0;
       position: absolute;
       top: 55%;
       transition: background 0.2s;
@@ -514,17 +514,17 @@
     }
 
     &::before {
-      transform: rotate(45deg);
+      transform: rotate(-45deg);
     }
 
     &::after {
-      transform: rotate(-45deg);
+      transform: rotate(45deg);
     }
   }
 
   &__pull-right {
     color: var(--secondary-contrast-cta-color);
-    float: right;
+    float: left;
     transition: 0.2s;
 
     &:hover {
@@ -553,7 +553,7 @@
       display: inline;
       font-size: calc(var(--font-size) * 2.5);
       position: absolute;
-      right: 10px;
+      left: 10px;
       top: 0;
     }
   }
@@ -587,7 +587,7 @@
   }
 
   &__level {
-    margin-left: calc(var(--gap) * 2) !important;
+    margin-right: calc(var(--gap) * 2) !important;
   }
 
   &__vertical-line {
@@ -722,7 +722,7 @@
       margin-top: calc(var(--gap) * 2.6);
       overflow: hidden;
       position: absolute;
-      right: calc(var(--gap) * 3.33);
+      left: calc(var(--gap) * 3.33);
       width: calc(var(--gap) * 2.5);
     }
   }
@@ -735,8 +735,8 @@
 
   tr {
     font-size: 0.8em;
-    padding-left: 5px;
     padding-right: 5px;
+    padding-left: 5px;
   }
 
   .pg-profile-page__api-keys {
@@ -744,8 +744,8 @@
       tr,
       td,
       th {
-        padding-left: 5px !important;
         padding-right: 5px !important;
+        padding-left: 5px !important;
       }
     }
   }
@@ -762,8 +762,8 @@
 
   tr {
     font-size: 0.6em;
-    padding-left: 5px;
     padding-right: 5px;
+    padding-left: 5px;
   }
 }
 

@@ -21,14 +21,14 @@
     .cr-tab-panel__navigation-container {
       background: var(--tab-panel-background-color);
       border-bottom: 1px solid var(--tab-panel-border-line-color);
-      border-top-left-radius: calc(var(--gap) * 0.66);
       border-top-right-radius: calc(var(--gap) * 0.66);
+      border-top-left-radius: calc(var(--gap) * 0.66);
       margin-bottom: 0;
 
       &-navigation {
         .cr-tab {
-          padding-left: calc(var(--gap) * 7);
           padding-right: calc(var(--gap) * 7);
+          padding-left: calc(var(--gap) * 7);
         }
       }
     }
@@ -68,9 +68,9 @@
       bottom: 0;
       display: flex;
       justify-content: center;
-      left: 0;
-      position: absolute;
       right: 0;
+      position: absolute;
+      left: 0;
       top: 0;
     }
 
@@ -99,12 +99,12 @@
               font-weight: 500;
               padding: calc(var(--gap) * 2.7) 0 calc(var(--gap) * 2.7) !important;
               position: static;
-              text-align: right;
+              text-align: left;
               width: calc(var(--big-gap) * 2);
 
               &:first-child {
-                margin-left: 10px;
-                text-align: left;
+                margin-right: 10px;
+                text-align: right;
               }
 
               &:nth-child(7) {
@@ -129,10 +129,10 @@
               margin-bottom: calc(var(--gap) * 1.66) !important;
               margin-top: calc(var(--gap) * 1.66) !important;
               padding: calc(var(--gap) * 2.7) 0 calc(var(--gap) * 2.7) !important;
-              text-align: right;
+              text-align: left;
 
               &:first-child {
-                text-align: left;
+                text-align: right;
               }
 
               &:last-child {
@@ -174,13 +174,13 @@
 
     .cr-tab {
       position: relative;
-      right: 7%;
+      left: 7%;
       top: 50%;
       transform: translateY(-50%);
       width: 1%;
 
       &__pointer {
-        left: 40% !important;
+        right: 40% !important;
         width: 80% !important;
       }
     }

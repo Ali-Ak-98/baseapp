@@ -3,7 +3,7 @@
   width: 100%;
 
   @media (max-width: 640px) {
-    margin-left: 0;
+    margin-right: 0;
     width: 100%;
   }
 
@@ -17,13 +17,13 @@
 
   .cr-table-header {
     &__content {
-      padding: 9px 9px 9px 12px;
+      padding: 9px 12px 9px 9px;
     }
 
     &__cancel {
       color: var(--secondary-contrast-cta-color);
       cursor: pointer;
-      float: right;
+      float: left;
       transition: 0.2s;
 
       &:hover {
@@ -44,7 +44,7 @@
       cursor: pointer;
       display: inline-block;
       height: calc(var(--gap) * 2);
-      margin-left: calc(var(--gap) / 1.33);
+      margin-right: calc(var(--gap) / 1.33);
       position: relative;
       width: calc(var(--gap) * 2);
 
@@ -53,7 +53,7 @@
         background: var(--secondary-contrast-cta-color);
         content: '';
         height: 2px;
-        left: 0;
+        right: 0;
         position: absolute;
         top: 55%;
         transition: 0.2s;
@@ -61,11 +61,11 @@
       }
 
       &::before {
-        transform: rotate(45deg);
+        transform: rotate(-45deg);
       }
 
       &::after {
-        transform: rotate(-45deg);
+        transform: rotate(45deg);
       }
     }
   }
@@ -76,7 +76,7 @@
   width: auto !important;
 
   &:not(:first-child) {
-    text-align: right;
+    text-align: left;
   }
 
   &:last-child {
@@ -100,10 +100,10 @@
     bottom: 0;
     display: flex;
     justify-content: center;
-    left: 0;
+    right: 0;
     padding-top: calc(var(--gap) * 4.5);
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
   }
 }
@@ -119,7 +119,7 @@
         display: block;
         font-size: 11px !important;
         font-weight: bold;
-        margin-left: 10px;
+        margin-right: 10px;
         padding: 20px 0 20px 0 !important;
         width: 100%;
       }

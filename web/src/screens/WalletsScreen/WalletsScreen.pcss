@@ -14,10 +14,10 @@
     bottom: 0;
     display: flex;
     justify-content: center;
-    left: 0;
+    right: 0;
     margin-top: calc(var(--gap) * 8);
     position: absolute;
-    right: 0;
+    left: 0;
     text-align: center;
     top: 0;
   }
@@ -34,7 +34,7 @@
     opacity: 1;
 
     img {
-      margin-right: calc(var(--gap) * 2);
+      margin-left: calc(var(--gap) * 2);
       width: 64px;
     }
   }
@@ -68,8 +68,8 @@
         align-items: center;
 
         .cr-wallet-item__image-icon {
-          margin-left: calc(var(--gap) * 2);
-          margin-right: calc(var(--gap) * 1.5);
+          margin-right: calc(var(--gap) * 2);
+          margin-left: calc(var(--gap) * 1.5);
           max-height: calc(var(--gap) * 4.5);
         }
       }
@@ -106,8 +106,8 @@
       }
 
       &__icon {
-        margin-left: calc(var(--gap) * 2);
-        margin-right: calc(var(--gap) * 1.5);
+        margin-right: calc(var(--gap) * 2);
+        margin-left: calc(var(--gap) * 1.5);
         min-width: 23px; /* update after changing icon lib */
       }
 
@@ -151,13 +151,13 @@
         }
 
         div {
-          margin-right: auto;
+          margin-left: auto;
         }
 
         &::before {
           background-color: var(--primary-cta-color);
-          border-bottom-left-radius: calc(var(--gap) * 0.66);
-          border-top-left-radius: calc(var(--gap) * 0.66);
+          border-bottom-right-radius: calc(var(--gap) * 0.66);
+          border-top-right-radius: calc(var(--gap) * 0.66);
           content: '';
           height: calc(var(--gap) * 9);
           width: 4px;
@@ -168,7 +168,7 @@
 
   .pg-wallet__tabs {
     background: var(--tab-pabel-background-color);
-    border-left: 1px solid var(--wallets-item-border-color);
+    border-right: 1px solid var(--wallets-item-border-color);
   }
 
   .cr-withdraw {
@@ -220,7 +220,7 @@
       .cr-withdraw__label {
         background: var(--input-background-color);
         border-radius: calc(var(--gap) * 0.33);
-        left: calc(var(--gap) * 1.66);
+        right: calc(var(--gap) * 1.66);
         padding: calc(var(--gap) * 0.33) var(--gap);
         position: absolute;
         top: 0;
@@ -283,7 +283,7 @@
     &__divider {
       background-color: var(--divider-color-level-2);
       display: none;
-      margin-left: calc(var(--gap) * 3.49);
+      margin-right: calc(var(--gap) * 3.49);
 
       &-two {
         height: calc(var(--gap) * 12);
@@ -353,8 +353,8 @@
 
   .cr-tab-content {
     background: var(--body-background-color);
-    border-bottom-left-radius: calc(var(--gap) * 0.5);
     border-bottom-right-radius: calc(var(--gap) * 0.5);
+    border-bottom-left-radius: calc(var(--gap) * 0.5);
     display: none;
     padding: calc(var(--gap) * 5) calc(var(--gap) * 2) 0;
 
@@ -364,7 +364,7 @@
 
     .pg-blur-deposit-crypto {
       height: 120px;
-      margin-left: -10px;
+      margin-right: -10px;
       margin-top: 94px;
       width: calc(100% - 10px);
 
@@ -380,7 +380,7 @@
     .pg-blur-deposit-fiat,
     .pg-blur-withdraw {
       height: 600px;
-      margin-left: -10px;
+      margin-right: -10px;
       margin-top: 94px;
       width: calc(100% - 10px);
 
@@ -410,14 +410,14 @@
     }
 
     &__icon {
-      margin-left: calc(var(--gap) * 1.5);
-      margin-right: calc(var(--gap) * 3);
+      margin-right: calc(var(--gap) * 1.5);
+      margin-left: calc(var(--gap) * 3);
     }
 
     &__icon,
     &__icon-code {
       flex-grow: 1;
-      margin-left: calc(var(--gap) * 0.6);
+      margin-right: calc(var(--gap) * 0.6);
 
       img {
         background: transparent;
@@ -431,7 +431,7 @@
 
       &-icon {
         display: inline-block;
-        margin-right: calc(var(--gap) * 1);
+        margin-left: calc(var(--gap) * 1);
       }
     }
 
@@ -466,17 +466,17 @@
   }
 
   .cr-wallet-item__balance {
-    margin-right: calc(var(--gap) * 3);
+    margin-left: calc(var(--gap) * 3);
   }
 
   &__error {
     color: var(--system-red);
     font-size: 1.2rem;
-    margin-left: calc(var(--gap) * 4);
+    margin-right: calc(var(--gap) * 4);
   }
 
   &__otp-code {
-    margin-left: calc(var(--gap) * 5);
+    margin-right: calc(var(--gap) * 5);
 
     label {
       color: var(--secondary-contrast-cta-color);
@@ -492,7 +492,7 @@
         color: var(--input-text-color);
         font-size: 1.2rem;
         padding: var(--gap) 0;
-        text-align: left;
+        text-align: right;
         width: 100%;
       }
     }
@@ -521,7 +521,7 @@
 
     button {
       cursor: pointer;
-      margin-left: calc(var(--gap) * 4.5);
+      margin-right: calc(var(--gap) * 4.5);
     }
   }
 
@@ -548,12 +548,12 @@
             font-weight: 500;
             padding: calc(var(--gap) * 2.5) var(--gap) calc(var(--gap) * 2.5) var(--gap) !important;
             position: static;
-            text-align: right;
+            text-align: left;
             width: calc(var(--big-gap) * 2);
 
             &:first-child {
-              margin-left: 10px;
-              text-align: left;
+              margin-right: 10px;
+              text-align: right;
             }
 
             &:nth-child(7) {
@@ -578,15 +578,15 @@
             margin-bottom: calc(var(--gap) * 1.66) !important;
             margin-top: calc(var(--gap) * 1.66) !important;
             padding: calc(var(--gap) * 2.5) var(--gap) calc(var(--gap) * 2.5) var(--gap) !important;
-            text-align: right;
+            text-align: left;
 
             &:first-child {
-              border-bottom-left-radius: calc(var(--gap) * 0.5);
-              text-align: left;
+              border-bottom-right-radius: calc(var(--gap) * 0.5);
+              text-align: right;
             }
 
             &:last-child {
-              border-bottom-right-radius: calc(var(--gap) * 0.5);
+              border-bottom-left-radius: calc(var(--gap) * 0.5);
 
               &::first-letter {
                 text-transform: uppercase;
@@ -652,7 +652,7 @@
     margin: 0;
 
     .cr-wallet-item__icon-code {
-      margin-left: 0;
+      margin-right: 0;
     }
 
     .cr-wallet-item__balance-locked,
@@ -670,11 +670,11 @@
 
   .cr-wallet-item__single {
     .cr-wallet-item__amount-locked {
-      margin-right: calc(var(--gap) * 4);
+      margin-left: calc(var(--gap) * 4);
     }
 
     .cr-wallet-item__balance {
-      margin-right: 0;
+      margin-left: 0;
     }
   }
 }

@@ -3,13 +3,13 @@
 
   &__header {
     background: transparent;
-    padding: calc(var(--gap) * 2) calc(var(--gap) * 2.2) calc(var(--gap) * 1.9) calc(var(--gap) * 3);
+    padding: calc(var(--gap) * 2) calc(var(--gap) * 3) calc(var(--gap) * 1.9) calc(var(--gap) * 2.2);
     position: relative;
   }
 
   &__close {
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
   }
 
@@ -18,14 +18,14 @@
     border: 1px solid #a9cde1;
     content: '';
     position: absolute;
-    right: calc(var(--gap) * 2);
+    left: calc(var(--gap) * 2);
     top: calc(var(--gap) * 3.1);
-    transform: rotate(45deg);
+    transform: rotate(-45deg);
     width: calc(var(--gap) * 3);
   }
 
   &__close::after {
-    transform: rotate(-45deg);
+    transform: rotate(45deg);
   }
 
   &__close:hover::after,

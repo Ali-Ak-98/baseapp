@@ -9,7 +9,7 @@ export const fa = {
     'page.header.navbar.signIn': 'ورود',
     'page.header.navbar.trade': 'معامله',
     'page.header.navbar.openOrders': 'معاملات باز',
-    'page.header.navbar.api': 'API',
+    'page.header.navbar.cardsList': 'افزودن / لیست کارت ها',
     'page.header.navbar.fastOrder': 'سفارش سریع',
     'page.header.navbar.wallets': 'کیف پول ها',
     'page.header.navbar.internal.transfer': 'نقل و انتقال داخلی',

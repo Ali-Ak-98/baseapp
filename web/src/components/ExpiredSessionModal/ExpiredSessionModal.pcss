@@ -5,8 +5,8 @@
 
       &__option,
       &__option-inner {
-        border-top-left-radius: 3px;
         border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
       }
 
       &__option-inner {
@@ -28,7 +28,7 @@
         margin-top: -2px;
         overflow: hidden;
         position: absolute;
-        right: calc(var(--gap) * 1.8);
+        left: calc(var(--gap) * 1.8);
         width: calc(var(--gap) * 1.9);
 
         &::before,
@@ -36,18 +36,18 @@
           background: var(--secondary-contrast-cta-color);
           content: '';
           height: 2px;
-          left: 0;
+          right: 0;
           position: absolute;
           top: 50%;
           width: 100%;
         }
 
         &::before {
-          transform: rotate(45deg);
+          transform: rotate(-45deg);
         }
 
         &::after {
-          transform: rotate(-45deg);
+          transform: rotate(45deg);
         }
       }
     }

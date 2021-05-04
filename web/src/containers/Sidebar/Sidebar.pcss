@@ -25,6 +25,7 @@
   box-shadow: 0 10px 15px var(--shadow-color-level-2);
   width: 320px;
   z-index: 99990;
+  direction: rtl;
 
   .show > .btn-primary.dropdown-toggle {
     background-color: var(--primary-cta-color) !important;
@@ -42,7 +43,7 @@
 
     &::after {
       position: relative;
-      right: 0;
+      left: 0;
     }
   }
 
@@ -87,7 +88,7 @@
       width: 100%;
 
       svg {
-        margin-right: 14px;
+        margin-left: 14px;
       }
 
       &:hover {
@@ -100,7 +101,7 @@
       }
 
       &-img {
-        margin-right: 14px;
+        margin-left: 14px;
       }
 
       &-text {
@@ -116,14 +117,14 @@
 
       &-text {
         color: var(--sidebar-text-color);
-        margin: 0 6px 0 0;
+        margin: 0 0 0 6px;
       }
 
       &-value {
         color: var(--sidebar-text-color);
         font-size: calc(var(--font-size) * 1.16);
         font-weight: 600;
-        margin: 0 6px 0 0;
+        margin: 0 0 0 6px;
       }
     }
   }
@@ -176,7 +177,7 @@
         }
 
         &-wrapper {
-          margin-right: 14px;
+          margin-left: 14px;
           width: 24px;
         }
 
@@ -222,7 +223,7 @@
       }
 
       &-img {
-        margin-right: 14px;
+        margin-left: 14px;
       }
 
       &-text {
@@ -245,8 +246,8 @@
     cursor: pointer;
     display: block;
     height: 30px;
-    left: 25px;
-    margin-right: 0;
+    right: 25px;
+    margin-left: 0;
     position: absolute;
     top: 15px;
     width: 30px;

@@ -71,7 +71,7 @@
           background-color: var(--input-background-color);
           border-color: var(--input-border-color);
           height: 18px;
-          margin-right: calc(var(--gap) * 3);
+          margin-left: calc(var(--gap) * 3);
           top: 0;
           transition: 0.2s;
           width: 18px;
@@ -130,9 +130,9 @@
   &__button-wrapper--empty {
     background: transparent;
     bottom: 0 !important;
-    left: 0;
-    position: absolute;
     right: 0;
+    position: absolute;
+    left: 0;
   }
 
   &__loader {
@@ -170,16 +170,16 @@
 
     &-signin {
       cursor: pointer;
-      padding-left: 10px;
+      padding-right: 10px;
     }
   }
 
   &__recaptcha {
     display: flex;
     justify-content: center;
-    left: 0;
-    position: absolute;
     right: 0;
+    position: absolute;
+    left: 0;
     top: 10px;
     z-index: 2;
   }

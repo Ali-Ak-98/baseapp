@@ -5,7 +5,7 @@ header {
 .pg-header {
   background-color: var(--header-background-color);
   margin: 0 auto;
-  direction: rtl;
+  direction: ltr;
 
   .pg-logo__img {
     cursor: pointer;
@@ -37,37 +37,39 @@ header {
   &__navbar {
     align-items: center;
     display: flex;
-    justify-content: flex-end;
-    margin-left: 30px;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 30px;
     padding-top: 3px;
     width: 100%;
   }
 
   &__toolbar {
     display: flex;
+    justify-content: center;
 
     &-item {
       display: flex;
       flex-flow: column;
-      justify-content: flex-end;
-      margin-left: 40px;
+      justify-content: center;
+      margin-right: 40px;
 
       &:last-child {
-        margin-right: 20px;
+        margin-left: 20px;
       }
 
       &-text {
         color: var(--header-toolbar-item-text-color);
         font-size: calc(var(--font-size) * 0.85);
         margin: 5px 0 0;
-        text-align: right;
+        text-align: center;
       }
 
       &-value {
         font-size: calc(var(--font-size) * 1.16);
         font-weight: 600;
         margin: 0;
-        text-align: right;
+        text-align: center;
 
         &-positive {
           color: var(--header-positive-text-color);
@@ -82,14 +84,15 @@ header {
 
   &__content {
     align-items: center;
-    box-shadow: 1px 1px 5px var(--shadow-color-level-2);
+    box-shadow: -1px 1px 5px var(--shadow-color-level-2);
     display: flex;
+    flex-direction: row-reverse;
     height: calc(var(--gap) * 10.67);
   }
 
   &__toggler {
     display: none;
-    left: 25px;
+    right: 25px;
     position: absolute;
     top: 15px;
     z-index: 11;
@@ -127,24 +130,24 @@ header {
         -webkit-animation: slide-right 0.3s ease-out;
         -moz-animation: slide-right 0.3s ease-out;
         display: block;
-        left: 0;
+        right: 0;
         position: fixed;
       }
     }
 
     &__market-selector-toggle {
-      margin-left: 0;
-      margin-right: 26px;
+      margin-right: 0;
+      margin-left: 26px;
       padding: 3px 8px;
 
       &-value {
-        margin-right: 7px;
+        margin-left: 7px;
       }
     }
 
     &__navbar {
       display: none;
-      margin-left: 0;
+      margin-right: 0;
       max-width: calc(var(--gap) * 33);
       min-height: calc(100vh - 56px);
       position: absolute;
@@ -157,7 +160,7 @@ header {
         background: rgba(0, 0, 0, 0.8);
         bottom: 0;
         content: '';
-        left: 264px;
+        right: 264px;
         position: absolute;
         top: 0;
         width: 100vw;
@@ -193,14 +196,14 @@ header {
   }
 
   .pg-header__market-selector-toggle {
-    margin-left: 26px;
+    margin-right: 26px;
   }
 }
 
 @-webkit-keyframes slide-right {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-100%);
+    -webkit-transform: translateX(100%);
   }
 
   100% {
@@ -212,7 +215,7 @@ header {
 @-moz-keyframes slide-right {
   0% {
     opacity: 0;
-    -moz-transform: translateX(-100%);
+    -moz-transform: translateX(100%);
   }
 
   100% {

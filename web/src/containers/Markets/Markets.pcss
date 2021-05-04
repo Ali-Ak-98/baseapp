@@ -1,7 +1,7 @@
 .pg-markets {
   background-color: var(--body-background-color);
   padding-bottom: calc(var(--gap) * 6.67);
-  text-align: left;
+  text-align: right;
   width: 100%;
 
   .cr-markets .cr-table__row--selected td {
@@ -21,7 +21,7 @@
       background: var(--body-background-color);
       bottom: 0;
       display: flex;
-      padding: calc(var(--gap) * 0.83) var(--gap) calc(var(--gap) * 0.83) 0;
+      padding: calc(var(--gap) * 0.83) 0 calc(var(--gap) * 0.83) var(--gap);
       position: fixed;
       width: 100%;
       z-index: 9999;
@@ -31,7 +31,7 @@
         display: flex;
         opacity: 0.5;
         padding-bottom: 0;
-        padding-left: calc(var(--gap) * 2);
+        padding-right: calc(var(--gap) * 2);
       }
     }
 
@@ -39,7 +39,7 @@
       td,
       th {
         &:nth-child(2) {
-          text-align: right;
+          text-align: left;
         }
       }
     }
@@ -56,8 +56,8 @@
 
 .cr-table__filter {
   font-size: 1em !important;
-  margin-left: calc(var(--gap) * 2);
-  margin-right: 0;
+  margin-right: calc(var(--gap) * 2);
+  margin-left: 0;
   padding: 0 !important;
 }
 

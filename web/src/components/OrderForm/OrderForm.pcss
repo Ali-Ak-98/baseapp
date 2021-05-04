@@ -44,13 +44,13 @@
   .dropdown-toggle {
     font-size: calc(var(--gap) * 2);
     height: calc(var(--gap) * 7);
-    padding-left: calc(var(--gap) * 2);
-    text-align: left;
+    padding-right: calc(var(--gap) * 2);
+    text-align: right;
   }
 
   &__dropdown__label {
     background-color: inherit;
-    margin-left: calc(var(--gap) * 2);
+    margin-right: calc(var(--gap) * 2);
     padding: 0 calc(var(--gap) * 0.5);
     position: absolute;
     top: calc(var(--gap) * -1.3);
@@ -73,14 +73,14 @@
   &__available,
   &__fee {
     &__label {
-      text-align: left;
+      text-align: right;
     }
 
     &__content {
-      text-align: right;
+      text-align: left;
 
       &__currency {
-        margin-left: var(--gap);
+        margin-right: var(--gap);
       }
     }
   }
@@ -99,7 +99,7 @@
         background: transparent !important;
         display: inline-block;
         margin-bottom: 5px;
-        margin-right: 20px;
+        margin-left: 20px;
         margin-top: 5px;
       }
     }

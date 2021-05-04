@@ -21,7 +21,7 @@
   &__copyablefield {
     display: flex;
     justify-content: space-between;
-    padding-left: calc(var(--gap) * 11.5);
+    padding-right: calc(var(--gap) * 11.5);
     position: relative;
 
     &__container {
@@ -31,7 +31,7 @@
       legend {
         background: var(--input-background-color);
         font-size: calc(var(--gap) * 2.33);
-        left: 5%;
+        right: 5%;
         padding: 0 3px;
         position: absolute;
         top: -10px;
@@ -56,7 +56,7 @@
       width: 100%;
 
       .cr-copyable-text-field {
-        padding: calc(var(--gap) * 0.83) calc(var(--gap) * 0.83) calc(var(--gap) * 0.83) var(--gap);
+        padding: calc(var(--gap) * 0.83) var(--gap) calc(var(--gap) * 0.83) calc(var(--gap) * 0.83);
 
         .input-group {
           display: flex;
@@ -96,7 +96,7 @@
       .pg-copyable-text-field {
         &__input {
           border: none;
-          padding: calc(var(--gap) * 0.83) calc(var(--gap) * 0.83) calc(var(--gap) * 0.83) var(--gap) !important;
+          padding: calc(var(--gap) * 0.83) var(--gap) calc(var(--gap) * 0.83) calc(var(--gap) * 0.83) !important;
 
           input {
             background: transparent;
@@ -114,11 +114,11 @@
       border-radius: calc(var(--gap) * 0.6);
       box-sizing: border-box;
       color: var(--input-text-color);
-      float: right;
+      float: left;
       height: calc(var(--gap) * 6.56);
       margin: calc(var(--gap) * 2) 0;
       max-width: 100%;
-      padding-left: 0;
+      padding-right: 0;
       width: auto;
 
       &:focus-within {
@@ -160,7 +160,7 @@
 
           input {
             margin-top: 0;
-            padding: 0 0 0 10px;
+            padding: 0 10px 0 0;
           }
         }
       }
@@ -197,7 +197,7 @@
         }
 
         div {
-          padding: 0 calc(var(--gap) * 1.5) 0 calc(var(--gap) * 4.16);
+          padding: 0 calc(var(--gap) * 4.16) 0 calc(var(--gap) * 1.5);
         }
       }
     }
@@ -212,7 +212,7 @@
       input {
         color: var(--input-text-color);
         font-size: var(--font-size);
-        text-align: left;
+        text-align: right;
         width: 100%;
       }
     }
@@ -252,7 +252,7 @@
 @media (min-width: 992px) {
   .pg-profile-two-factor-auth__qr {
     height: calc(var(--big-gap) * 2) !important;
-    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
